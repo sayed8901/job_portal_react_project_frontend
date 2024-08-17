@@ -4,12 +4,11 @@ import { toast } from "react-toastify";
 import LoadingSpinner from "../../utilities/LoadingSpinner";
 import useTitle from "../../utilities/useTitle";
 import { PDFDownloadLink } from "@react-pdf/renderer";
-import JobDetailsPDF from "../../components/JobDetailsPDF";
+import JobDetailsPDF from "./JobPostDetailsPDF";
 
 const JobDetails = () => {
   useTitle("Job Details");
 
-  const { post_id } = useParams();
   const [post, setPost] = useState(null);
   const [applicationStatus, setApplicationStatus] = useState(null);
   const [errorMessage, setErrorMessage] = useState(""); // State for error messages
@@ -19,6 +18,7 @@ const JobDetails = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const navigate = useNavigate();
 
+  const { post_id } = useParams();
   const job_seeker_id = localStorage.getItem("job_seeker_id");
   const token = localStorage.getItem("authToken");
 
@@ -38,6 +38,7 @@ const JobDetails = () => {
     fetchData();
   }, [post_id]);
 
+  // to check if the job_seeker already applied to the job post or not
   useEffect(() => {
     const checkApplicationStatus = async () => {
       if (job_seeker_id) {
@@ -62,7 +63,7 @@ const JobDetails = () => {
     checkApplicationStatus();
   }, [post_id, job_seeker_id, token]);
 
-  const handleApplication = () => {
+  const handleOpenApplicationModal = () => {
     setIsModalOpen(true);
   };
 
@@ -76,6 +77,7 @@ const JobDetails = () => {
     setSuccessMessage(""); // Clear previous success message
     setIsLoading(true); // Show loading spinner
 
+    // sending formData directly to handle the file field data
     const formData = new FormData(event.target);
 
     try {
@@ -113,10 +115,11 @@ const JobDetails = () => {
   };
 
   if (!post) {
-    return <div>Loading...</div>;
+    return <LoadingSpinner></LoadingSpinner>;
   }
 
   const currentDate = new Date();
+  // Convert the job post deadline to UTC for comparison purposes
   const isExpired = new Date(post.deadline + "T23:59:59Z") < currentDate;
 
   return (
@@ -127,7 +130,7 @@ const JobDetails = () => {
             <h2 className="text-3xl">{post.employer.company_name}</h2>
             <h1 className="text-4xl font-bold">{post.job_title}</h1>
           </div>
-          <div className="lg:space-y-2">
+          <div className="lg:space-y-1">
             <p>
               Job Published on:{" "}
               <span className="font-bold">{post.job_posted_on}</span>
@@ -139,6 +142,7 @@ const JobDetails = () => {
           </div>
         </div>
         <hr />
+
         {/* PDF Download Button */}
         <div className="text-right">
           <PDFDownloadLink
@@ -146,9 +150,7 @@ const JobDetails = () => {
             fileName={`${post.job_title}.pdf`}
             className="rounded-md bg-green-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-green-500"
           >
-            {({ loading }) =>
-              loading ? "Preparing document..." : "Download PDF"
-            }
+            Download PDF
           </PDFDownloadLink>
         </div>
 
@@ -231,7 +233,6 @@ const JobDetails = () => {
             </div>
           </div>
         </div>
-
         <hr />
 
         <div className="my-10">
@@ -253,7 +254,6 @@ const JobDetails = () => {
             </p>
           </div>
         </div>
-
         <hr />
 
         <div className="my-10">
@@ -262,9 +262,9 @@ const JobDetails = () => {
           </h1>
           <p>{post.application_instructions}</p>
         </div>
-
         <hr />
 
+        {/* Conditional BTN rendering */}
         <div className="flex justify-end mt-10">
           {job_seeker_id ? (
             applicationStatus === "Already applied for this job post" ? (
@@ -278,7 +278,7 @@ const JobDetails = () => {
             ) : (
               <button
                 className="mr-10 rounded-md bg-indigo-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500"
-                onClick={handleApplication}
+                onClick={handleOpenApplicationModal}
               >
                 Apply Now
               </button>
@@ -304,6 +304,7 @@ const JobDetails = () => {
             <h2 className="text-xl mb-4">
               Apply for <span className="font-bold">{post.job_title}</span>
             </h2>
+
             <form id="apply-form" onSubmit={handleSubmit}>
               <div className="mb-4">
                 <label
@@ -355,6 +356,7 @@ const JobDetails = () => {
               </div>
             </form>
 
+            {/* showing error messages if any error occurs */}
             {errorMessage && (
               <div className="text-red-600 mb-4">{errorMessage}</div>
             )}

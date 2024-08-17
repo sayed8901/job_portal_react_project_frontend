@@ -1,12 +1,13 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
+import useTitle from "../../utilities/useTitle";
+
 import salaryIcon from "../../assets/icons8-bangladesh-24.png";
 import calenderIcon from "../../assets/icons8-date-50.png";
 import jobTypeIcon from "../../assets/icons8-business-time-30.png";
 import locationIcon from "../../assets/icons8-location.gif";
 import jobEducationIcon from "../../assets/icons8-education-50.png";
-import { toast } from "react-toastify";
-import useTitle from "../../utilities/useTitle";
 
 const MyApplications = () => {
   useTitle("My Applications");
@@ -53,6 +54,7 @@ const MyApplications = () => {
     )
       .then((response) => {
         if (response.ok) {
+          // If response status is 204 No Content, no JSON to parse
           if (response.status === 204) {
             return null;
           }
@@ -77,10 +79,10 @@ const MyApplications = () => {
   return (
     <div className="container mx-auto px-2 sm:px-0">
       <div className="bg-white py-16 sm:py-24 text-gray-900 w-full sm:w-5/6 md:w-3/4 mx-auto">
-        <h2 className="text-center text-3xl font-semibold leading-8 text-gray-900 mt-10 mb-20">
+        <h2 className="text-center text-3xl font-semibold leading-8 text-gray-900 my-10">
           All Applications
         </h2>
-        <p className="text-center text-lg leading-8 text-gray-900 my-8 w-full sm:w-3/4 mx-auto px-6 lg:px-8">
+        <p className="text-center text-lg leading-8 text-gray-900 mt-8 mb-16 w-full sm:w-3/4 mx-auto px-6 lg:px-8">
           Here are your all applied jobs. You can check out the details of your
           application from below.
         </p>
@@ -94,6 +96,7 @@ const MyApplications = () => {
               <h2 className="text-2xl font-bold leading-7 text-gray-900 sm:truncate sm:text-3xl sm:tracking-tight mb-5">
                 {post.job_post.job_title}
               </h2>
+
               <div className="mt-1 flex flex-col sm:mt-0 sm:flex-row sm:flex-wrap sm:space-x-3 md:space-x-6">
                 <div className="mt-2 mb-5 flex items-center text-sm text-gray-500">
                   <img className="w-6 mx-2" src={salaryIcon} alt="" />
@@ -110,6 +113,7 @@ const MyApplications = () => {
                   </p>
                 </div>
               </div>
+
               <div className="mt-1 flex flex-col sm:mt-0 sm:flex-row sm:flex-wrap sm:space-x-3 md:space-x-6">
                 <div className="sm:mt-2 flex items-center text-sm text-gray-500">
                   <img
@@ -137,6 +141,7 @@ const MyApplications = () => {
                 </div>
               </div>
             </div>
+
             <div className="flex flex-col">
               <button
                 type="button"

@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import useTitle from "../../utilities/useTitle";
 
 import userIcon from "../../assets/profile_img.png";
 import salaryIcon from "../../assets/icons8-bangladesh-24.png";
@@ -7,7 +8,6 @@ import calenderIcon from "../../assets/icons8-date-50.png";
 import jobTypeIcon from "../../assets/icons8-business-time-30.png";
 import locationIcon from "../../assets/icons8-location.gif";
 import jobEducationIcon from "../../assets/icons8-education-50.png";
-import useTitle from "../../utilities/useTitle";
 
 const ApplicantsOfJob = () => {
   useTitle("Applicants");
@@ -39,10 +39,10 @@ const ApplicantsOfJob = () => {
 
   return (
     <div className="bg-white px-8 py-12 sm:py-16 text-gray-900 mx-auto">
-      <h2 className="text-center text-3xl font-semibold leading-8 text-gray-900 mt-10 mb-20">
+      <h2 className="text-center text-3xl font-semibold leading-8 text-gray-900 my-10">
         Applicants List
       </h2>
-      <p className="text-center text-lg leading-8 text-gray-900 my-8 w-full sm:w-3/4 mx-auto">
+      <p className="text-center text-lg leading-8 text-gray-900 mt-8 mb-16 w-full sm:w-3/4 mx-auto">
         You can check out the list of the applications received from job seekers
         to your job post.
       </p>
@@ -67,6 +67,7 @@ const ApplicantsOfJob = () => {
                 )
               </div>
             </div>
+
             <div className="mt-1 flex flex-col sm:mt-0 sm:flex-row sm:flex-wrap sm:space-x-4 md:space-x-8">
               <div className="sm:mt-2 flex items-center text-sm text-gray-500 my-3">
                 <p className="text-md font-bold leading-7 text-gray-900 sm:truncate sm:text-lg sm:tracking-tight">
@@ -135,6 +136,7 @@ const ApplicantsOfJob = () => {
                   Customized Resume
                 </a>
               </div>
+
               <div className="sm:mt-2 flex items-center text-sm text-gray-500">
                 <img className="w-6 mx-2" src={jobEducationIcon} alt="" />
                 <p className="text-md font-bold leading-7 text-gray-900 sm:truncate sm:text-xl sm:tracking-tight">
@@ -143,6 +145,7 @@ const ApplicantsOfJob = () => {
                 </p>
               </div>
             </div>
+
             <div>
               <div className="sm:mt-2 flex items-center text-sm text-gray-500 mb-0 sm:mb-6 lg:mb-0">
                 <img className="w-6 mx-2" src={jobTypeIcon} alt="" />

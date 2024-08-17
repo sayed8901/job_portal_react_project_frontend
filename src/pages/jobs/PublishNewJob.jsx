@@ -7,7 +7,7 @@ import useTitle from "../../utilities/useTitle";
 
 const PublishNewJob = () => {
   useTitle("Publish Job");
-  
+
   const [categories, setCategories] = useState([]);
   const [formData, setFormData] = useState({
     job_category: [],
@@ -43,15 +43,16 @@ const PublishNewJob = () => {
   const handleChange = (e) => {
     const { name, value, options, type } = e.target;
 
+    // job_category is handled as an array as it might be multiple, so sent as a list to backend
     if (type === "select-multiple") {
-      // job_category is handled as an array as it might be multiple, so sent as a list to backend
-
       // Convert the options collection to an array
       const optionsArray = Array.from(options);
+
       // Filter out the options that are selected only
       const selectedOptionsArray = optionsArray.filter(
         (option) => option.selected
       );
+
       // Map over the selected options and convert each value to an integer
       const selectedOptions = selectedOptionsArray.map((option) =>
         parseInt(option.value)
@@ -77,7 +78,12 @@ const PublishNewJob = () => {
 
     const jobPublishData = {
       ...formData,
+
+      // job_category is handled as an array as it might be multiple, so sent as a list to backend
+      // also converting it into a integer number as primary key for the job category
       job_category: formData.job_category.map((catId) => parseInt(catId)),
+
+      // converting into integer number
       vacancy: parseInt(formData.vacancy),
       age: parseInt(formData.age),
       salary: parseInt(formData.salary),
@@ -104,6 +110,7 @@ const PublishNewJob = () => {
       )
       .then((response) => {
         setIsLoading(false);
+
         if (response.status === 400) {
           displayErrorMessages(response.body);
         } else {
@@ -121,19 +128,26 @@ const PublishNewJob = () => {
   };
 
   const displayErrorMessages = (errors) => {
+    // "Object.values(errors)" gets all error values.
+    // 'flat()' combines multiple arrays into one array of messages.
+    // 'join(", ")' merges the messages into a single string, separated by commas.
     const errorMessages = Object.values(errors).flat().join(", ");
     setErrorMessage(errorMessages);
   };
 
   return (
-    <div className="container mx-auto px-2 sm:px-0">
+    <div className="container mx-auto px-2 sm:px-0 my-20">
+      <h2 className="text-center text-3xl font-semibold leading-8 text-gray-900 pt-10">
+        Publish a new job
+      </h2>
+
       <form
-        className="w-full md:w-5/6 lg:w-4/6 mx-auto px-5 mb-10 pt-20"
+        className="w-full md:w-5/6 lg:w-4/6 mx-auto px-5 my-10"
         onSubmit={handleJobPublish}
       >
         <div className="space-y-12">
           <div className="border-b border-gray-900/10 pb-12">
-            <h2 className="text-base font-semibold leading-7 text-gray-900">
+            <h2 className="text-base md:text-xl font-bold leading-7 text-gray-900">
               General Information
             </h2>
 
@@ -251,7 +265,7 @@ const PublishNewJob = () => {
           </div>
 
           <div className="border-b border-gray-900/10 pb-12">
-            <h2 className="text-base font-semibold leading-7 text-gray-900">
+            <h2 className="text-base md:text-xl font-bold leading-7 text-gray-900">
               Requirements
             </h2>
 
@@ -319,7 +333,7 @@ const PublishNewJob = () => {
           </div>
 
           <div className="border-b border-gray-900/10 pb-12">
-            <h2 className="text-base font-semibold leading-7 text-gray-900">
+            <h2 className="text-base md:text-xl font-bold leading-7 text-gray-900">
               Job Details
             </h2>
 
@@ -424,7 +438,7 @@ const PublishNewJob = () => {
                 </div>
               </div>
 
-              <div className="sm:col-span-2">
+              <div className="sm:col-span-3">
                 <label
                   htmlFor="deadline"
                   className="block text-sm font-medium leading-6 text-gray-900"
@@ -447,12 +461,14 @@ const PublishNewJob = () => {
           </div>
         </div>
 
+        {/* showing error messages if any error occurs */}
         {errorMessage && (
           <p className="text-red-600 text-center font-semibold mt-5">
             {errorMessage}
           </p>
         )}
 
+        {/* Publish BTN */}
         <div className="mt-6 flex items-center justify-center gap-x-6">
           <button
             type="submit"

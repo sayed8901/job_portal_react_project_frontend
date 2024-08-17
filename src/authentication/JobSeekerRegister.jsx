@@ -76,14 +76,14 @@ const JobSeekerRegister = () => {
   };
 
   return (
-    <div className="container mx-auto">
+    <div className="container mx-auto mt-10">
       <form
         onSubmit={handleSubmit}
         className="w-full md:w-2/3 lg:w-1/2 mx-auto px-5 mb-10 pt-20"
       >
         <div className="space-y-12">
           <div className="border-b border-gray-900/10 pb-12">
-            <h2 className="text-base font-semibold leading-7 text-gray-900">
+            <h2 className="text-xl md:text-2xl font-bold leading-7 text-gray-900">
               Applicant Registration Form
             </h2>
 

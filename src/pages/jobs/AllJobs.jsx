@@ -1,18 +1,19 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import useTitle from "../../utilities/useTitle";
+
 import salaryIcon from "../../assets/icons8-bangladesh-24.png";
 import calenderIcon from "../../assets/icons8-date-50.png";
 import jobTypeIcon from "../../assets/icons8-business-time-30.png";
 import locationIcon from "../../assets/icons8-location.gif";
 import jobEducationIcon from "../../assets/icons8-education-50.png";
-import useTitle from "../../utilities/useTitle";
 
 const AllJobs = () => {
   useTitle("All Jobs");
 
   const [categories, setCategories] = useState([]);
   const [jobs, setJobs] = useState([]);
-  const countdownIntervals = {};
+  const countdownIntervals = {}; // Object to keep track of countdown intervals
 
   // Fetch categories and jobs when the component mounts
   useEffect(() => {
@@ -27,6 +28,7 @@ const AllJobs = () => {
     };
   }, []);
 
+  // Fetch categories
   const fetchCategories = async () => {
     try {
       const res = await fetch(`${import.meta.env.VITE_API_URL}/category/`);
@@ -37,11 +39,14 @@ const AllJobs = () => {
     }
   };
 
+  // Function to fetch and display jobs dynamically
   const getJobs = async (categorySlugName = "") => {
     try {
+      // initially, to load all jobs data by default
       let url = `${import.meta.env.VITE_API_URL}/job_posts/all/`;
 
       if (categorySlugName) {
+        // load jobs for a category only if category is selected
         url = `${
           import.meta.env.VITE_API_URL
         }/job_posts/job_posts_of_a_category/?slug=${categorySlugName}`;
@@ -53,8 +58,10 @@ const AllJobs = () => {
 
       data.forEach((post) => {
         const currentDate = new Date();
+        // Convert the job post deadline to UTC for comparison purposes
         const deadline = new Date(post.deadline + "T23:59:59Z");
 
+        // Set up countdown timer
         if (deadline > currentDate) {
           const intervalId = setInterval(() => {
             const now = new Date().getTime();
@@ -73,11 +80,14 @@ const AllJobs = () => {
               `countdown-${post.id}`
             );
 
+            // Each interval checks if the countdownContainer exists before attempting to update it.
             if (countdownContainer) {
               countdownContainer.classList.add("countdown");
               countdownContainer.innerHTML = `${days}d ${hours}h ${minutes}m ${seconds}s remaining`;
             } else {
+              // If the container does not exist, the interval is cleared and removed from countdownIntervals.
               clearInterval(countdownIntervals[post.id]);
+              // clear existing intervals stored in countdownIntervals before starting new ones.
               delete countdownIntervals[post.id];
             }
           }, 1000);
@@ -128,6 +138,8 @@ const AllJobs = () => {
                     <h2 className="text-xl font-bold leading-7 text-gray-900 sm:truncate sm:text-2xl md:text-3xl sm:tracking-tight">
                       {post.job_title}
                     </h2>
+
+                    {/* Live / Expired part */}
                     {new Date(post.deadline + "T23:59:59Z") > new Date() ? (
                       <p className="bg-green-200 text-sm text-green-800 px-3 py-1 rounded animate-bounce">
                         Live
@@ -138,11 +150,15 @@ const AllJobs = () => {
                       </p>
                     )}
                   </div>
+
+                  {/* showing countdown timer */}
                   <p id={`countdown-${post.id}`}></p>
                 </div>
+
                 <h2 className="text-lg leading-7 text-gray-900 sm:truncate sm:text-xl md:text-2xl sm:tracking-tight  mt-2 mb-5">
                   {post.employer.company_name}
                 </h2>
+
                 <div className="mt-1 flex flex-col sm:mt-0 sm:flex-row sm:flex-wrap sm:space-x-3 md:space-x-6">
                   <div className="sm:mt-2 flex items-center text-sm text-gray-500">
                     <img
@@ -153,39 +169,24 @@ const AllJobs = () => {
                     {post.employment_status}
                   </div>
                   <div className="mt-2 flex items-center text-sm text-gray-500">
-                    <img
-                      className="w-6 mx-2"
-                      src={locationIcon}
-                      alt=""
-                    />
+                    <img className="w-6 mx-2" src={locationIcon} alt="" />
                     {post.job_location}
                   </div>
                   <div className="mt-2 flex items-center text-sm text-gray-500">
-                    <img
-                      className="w-6 mx-2"
-                      src={jobEducationIcon}
-                      alt=""
-                    />
+                    <img className="w-6 mx-2" src={jobEducationIcon} alt="" />
                     {post.education}
                   </div>
                   <div className="mt-2 flex items-center text-sm text-gray-500">
-                    <img
-                      className="w-6 mx-2"
-                      src={salaryIcon}
-                      alt=""
-                    />
+                    <img className="w-6 mx-2" src={salaryIcon} alt="" />
                     BDT {post.salary}/-
                   </div>
                   <div className="mt-2 flex items-center text-sm text-gray-500">
-                    <img
-                      className="w-6 mx-2"
-                      src={calenderIcon}
-                      alt=""
-                    />
+                    <img className="w-6 mx-2" src={calenderIcon} alt="" />
                     Closing on {post.deadline}
                   </div>
                 </div>
               </div>
+
               <Link
                 to={`/job_post_details/${post.id}`}
                 className="inline-flex items-center rounded-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-200 my-5"

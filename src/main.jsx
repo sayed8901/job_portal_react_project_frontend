@@ -37,7 +37,11 @@ const router = createBrowserRouter([
         <App></App>
       </>
     ),
-    errorElement: <ErrorPage></ErrorPage>,
+    errorElement: (
+      <LazyLoad>
+        <ErrorPage></ErrorPage>
+      </LazyLoad>
+    ),
     children: [
       {
         path: "/",
@@ -45,31 +49,59 @@ const router = createBrowserRouter([
       },
       {
         path: "/employer_register",
-        element: <EmployerRegister></EmployerRegister>,
+        element: (
+          <LazyLoad>
+            <EmployerRegister></EmployerRegister>
+          </LazyLoad>
+        ),
       },
       {
         path: "/job_seeker_register",
-        element: <JobSeekerRegister></JobSeekerRegister>,
+        element: (
+          <LazyLoad>
+            <JobSeekerRegister></JobSeekerRegister>
+          </LazyLoad>
+        ),
       },
       {
         path: "/login",
-        element: <Login></Login>,
+        element: (
+          <LazyLoad>
+            <Login></Login>
+          </LazyLoad>
+        ),
       },
       {
         path: "/job_seeker_profile",
-        element: <JobSeekerProfile></JobSeekerProfile>,
+        element: (
+          <LazyLoad>
+            <JobSeekerProfile></JobSeekerProfile>
+          </LazyLoad>
+        ),
       },
       {
         path: "/employer_profile",
-        element: <EmployerProfile></EmployerProfile>,
+        element: (
+          <LazyLoad>
+            <EmployerProfile></EmployerProfile>
+          </LazyLoad>
+        ),
       },
       {
         path: "/job_seeker_profile_update",
-        element: <JobSeekerProfileUpdate></JobSeekerProfileUpdate>,
+        element: (
+          <LazyLoad>
+            <JobSeekerProfileUpdate></JobSeekerProfileUpdate>
+          </LazyLoad>
+        ),
       },
       {
         path: "/employer_profile_update",
-        element: <EmployerProfileUpdate></EmployerProfileUpdate>,
+        element: (
+          <LazyLoad>
+            <EmployerProfileUpdate></EmployerProfileUpdate>
+          </LazyLoad>
+        ),
       },
       {
         path: "/all_jobs_by_category",
@@ -81,27 +113,51 @@ const router = createBrowserRouter([
       },
       {
         path: "/job_post_details/:post_id",
-        element: <JobPostDetails></JobPostDetails>,
+        element: (
+          <LazyLoad>
+            <JobPostDetails></JobPostDetails>
+          </LazyLoad>
+        ),
       },
       {
         path: "/my_applications",
-        element: <MyApplications></MyApplications>,
+        element: (
+          <LazyLoad>
+            <MyApplications></MyApplications>
+          </LazyLoad>
+        ),
       },
       {
         path: "/my_jobs",
-        element: <MyJobs></MyJobs>,
+        element: (
+          <LazyLoad>
+            <MyJobs></MyJobs>
+          </LazyLoad>
+        ),
       },
       {
         path: "/publish_new_job",
-        element: <PublishNewJob></PublishNewJob>,
+        element: (
+          <LazyLoad>
+            <PublishNewJob></PublishNewJob>
+          </LazyLoad>
+        ),
       },
       {
         path: "/update_job_details/:post_id",
-        element: <UpdateJobDetails></UpdateJobDetails>,
+        element: (
+          <LazyLoad>
+            <UpdateJobDetails></UpdateJobDetails>
+          </LazyLoad>
+        ),
       },
       {
         path: "/applicants_of_a_job/:post_id",
-        element: <ApplicantsOfJob></ApplicantsOfJob>,
+        element: (
+          <LazyLoad>
+            <ApplicantsOfJob></ApplicantsOfJob>
+          </LazyLoad>
+        ),
       },
     ],
   },

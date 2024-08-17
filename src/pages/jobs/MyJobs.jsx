@@ -1,12 +1,13 @@
 import { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
+import useTitle from "../../utilities/useTitle";
+
 import salaryIcon from "../../assets/icons8-bangladesh-24.png";
 import calenderIcon from "../../assets/icons8-date-50.png";
 import jobTypeIcon from "../../assets/icons8-business-time-30.png";
 import locationIcon from "../../assets/icons8-location.gif";
 import jobEducationIcon from "../../assets/icons8-education-50.png";
-import { toast } from "react-toastify";
-import useTitle from "../../utilities/useTitle";
 
 const MyJobs = () => {
   useTitle("My Jobs");
@@ -14,6 +15,7 @@ const MyJobs = () => {
   const [jobs, setJobs] = useState([]);
   const token = localStorage.getItem("authToken");
   const employer_id = localStorage.getItem("employer_id");
+
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -46,6 +48,7 @@ const MyJobs = () => {
     })
       .then((response) => {
         if (response.ok) {
+          // If response status is 204 No Content, no JSON to parse
           if (response.status === 204) {
             return null;
           }
@@ -67,10 +70,10 @@ const MyJobs = () => {
 
   return (
     <div className="bg-white py-16 sm:py-24 text-gray-900 w-full sm:w-5/6 md:w-3/4 mx-auto">
-      <h2 className="text-center text-3xl font-semibold leading-8 text-gray-900 mt-10 mb-20">
+      <h2 className="text-center text-3xl font-semibold leading-8 text-gray-900 my-10">
         My Posted Jobs
       </h2>
-      <p className="text-center text-lg leading-8 text-gray-900 my-8 w-full sm:w-3/4 mx-auto px-6 lg:px-8">
+      <p className="text-center text-lg leading-8 text-gray-900 mt-8 mb-16 w-full sm:w-3/4 mx-auto px-6 lg:px-8">
         Here are all your posted jobs. You can check out & update the details of
         your application below. You can also view the applications received from
         job seekers for each job circular you have posted.
@@ -78,6 +81,7 @@ const MyJobs = () => {
 
       {jobs.map((post) => {
         const currentDate = new Date();
+        // Convert the job post deadline to UTC for comparison purposes
         const isLive = new Date(post.deadline + "T23:59:59Z") > currentDate;
 
         return (
@@ -90,6 +94,7 @@ const MyJobs = () => {
                 <h2 className="text-2xl font-bold leading-7 text-gray-900 sm:truncate sm:text-3xl sm:tracking-tight">
                   {post.job_title}
                 </h2>
+
                 {isLive ? (
                   <p className="bg-green-200 text-sm text-green-800 px-3 py-1 rounded animate-bounce">
                     Live
@@ -100,6 +105,7 @@ const MyJobs = () => {
                   </p>
                 )}
               </div>
+
               <div className="mt-1 flex flex-col sm:mt-0 sm:flex-row sm:flex-wrap sm:space-x-3 md:space-x-6">
                 <div className="sm:mt-2 flex items-center text-sm text-gray-500">
                   <img
@@ -131,6 +137,7 @@ const MyJobs = () => {
                 </div>
               </div>
             </div>
+
             <div className="flex flex-col">
               <Link
                 to={`/applicants_of_a_job/${post.id}`}
@@ -138,12 +145,14 @@ const MyJobs = () => {
               >
                 Applications
               </Link>
+
               <Link
                 to={`/update_job_details/${post.id}`}
                 className="inline-flex items-center rounded-md bg-green-300 px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-green-200 mx-2 my-3"
               >
                 Update Job
               </Link>
+
               <button
                 onClick={() => handleDeleteJob(post.id)}
                 className="inline-flex items-center rounded-md bg-red-300 px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-red-200 mx-2 my-3"

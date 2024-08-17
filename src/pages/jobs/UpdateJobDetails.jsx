@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { toast } from "react-toastify";
 import useTitle from "../../utilities/useTitle";
+import LoadingSpinner from "../../utilities/LoadingSpinner";
 
 const UpdateJob = () => {
   useTitle("Update Job");
@@ -22,9 +23,11 @@ const UpdateJob = () => {
     application_instructions: "",
     deadline: "",
   });
+  const [isLoading, setIsLoading] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
-
+  const [successMessage, setSuccessMessage] = useState("");
   const navigate = useNavigate();
+
   const { post_id } = useParams();
   const token = localStorage.getItem("authToken");
 
@@ -64,6 +67,9 @@ const UpdateJob = () => {
 
   const handleUpdateJobDetails = (e) => {
     e.preventDefault();
+    setIsLoading(true);
+    setErrorMessage("");
+    setSuccessMessage("");
 
     fetch(`${import.meta.env.VITE_API_URL}/job_posts/all/${post_id}/`, {
       method: "PUT",
@@ -73,36 +79,55 @@ const UpdateJob = () => {
       },
       body: JSON.stringify(formData),
     })
-      .then((res) => {
-        if (!res.ok) {
-          return res.json().then((errorData) => {
-            throw new Error(errorData.detail || "An error occurred");
-          });
+      .then((res) =>
+        res.json().then((data) => ({
+          status: res.status,
+          body: data,
+        }))
+      )
+      .then((response) => {
+        setIsLoading(false);
+
+        if (response.status === 400) {
+          displayErrorMessages(response.body);
+        } else {
+          setSuccessMessage("Job post data successfully updated.");
+          toast.success("Job post data successfully updated.");
+          console.log(successMessage);
+          navigate("/my_jobs");
         }
-        return res.json();
-      })
-      .then((data) => {
-        console.log(data);
-        // Show success toast
-        toast.success("Job post data successfully updated.");
-        navigate("/my_jobs");
       })
       .catch((err) => {
-        setErrorMessage(err.message);
+        setIsLoading(false);
+        console.log("Job update error:", err);
+        setErrorMessage("An error occurred while updating the job details.");
       });
   };
 
+  const displayErrorMessages = (errors) => {
+    // "Object.values(errors)" gets all error values.
+    // 'flat()' combines multiple arrays into one array of messages.
+    // 'join(", ")' merges the messages into a single string, separated by commas.
+    const errorMessages = Object.values(errors).flat().join(", ");
+    setErrorMessage(errorMessages);
+  };
+
   return (
-    <div className="container mx-auto px-2 sm:px-0">
+    <div className="container mx-auto px-2 sm:px-0 my-20">
+      <h2 className="text-center text-3xl font-semibold leading-8 text-gray-900 pt-10">
+        Update job post
+      </h2>
+
       <form
-        className="w-full md:w-5/6 lg:w-4/6 mx-auto px-5 mb-10 pt-20"
+        className="w-full md:w-5/6 lg:w-4/6 mx-auto px-5 my-10"
         onSubmit={handleUpdateJobDetails}
       >
         <div className="space-y-12">
           <div className="border-b border-gray-900/10 pb-12">
-            <h2 className="text-base font-semibold leading-7 text-gray-900">
+            <h2 className="text-base md:text-xl font-bold leading-7 text-gray-900">
               General Information
             </h2>
+
             <div className="mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
               <div className="sm:col-span-full">
                 <label
@@ -208,9 +233,10 @@ const UpdateJob = () => {
           </div>
 
           <div className="border-b border-gray-900/10 pb-12">
-            <h2 className="text-base font-semibold leading-7 text-gray-900">
+            <h2 className="text-base md:text-xl font-bold leading-7 text-gray-900">
               Requirements
             </h2>
+
             <div className="mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
               <div className="col-span-full">
                 <label
@@ -276,9 +302,10 @@ const UpdateJob = () => {
           </div>
 
           <div className="border-b border-gray-900/10 pb-12">
-            <h2 className="text-base font-semibold leading-7 text-gray-900">
+            <h2 className="text-base md:text-xl font-bold leading-7 text-gray-900">
               Description
             </h2>
+
             <div className="mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
               <div className="col-span-full">
                 <label
@@ -381,7 +408,7 @@ const UpdateJob = () => {
                 </div>
               </div>
 
-              <div className="sm:col-span-2">
+              <div className="sm:col-span-3">
                 <label
                   htmlFor="deadline"
                   className="block text-sm font-medium leading-6 text-gray-900"
@@ -405,20 +432,29 @@ const UpdateJob = () => {
           </div>
         </div>
 
-        {errorMessage && <div className="text-red-600">{errorMessage}</div>}
+        {/* showing error messages if any error occurs */}
+        {errorMessage && (
+          <p className="text-red-600 text-center font-semibold mt-5">
+            {errorMessage}
+          </p>
+        )}
+
+        {/* Update or Cancel BTN */}
         <div className="mt-6 flex items-center justify-end gap-x-6">
           <button
             type="button"
             onClick={() => navigate(-1)}
             className="rounded-md bg-indigo-600 px-3 py-2 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+            disabled={isLoading}
           >
             Cancel
           </button>
           <button
             type="submit"
             className="inline-block px-4 py-2 font-semibold bg-blue-600 text-white rounded-md shadow-sm hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-600"
+            disabled={isLoading}
           >
-            Update Job
+            {isLoading ? <LoadingSpinner></LoadingSpinner> : "Update Job"}
           </button>
         </div>
       </form>
