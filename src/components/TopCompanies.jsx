@@ -37,7 +37,7 @@ const TopCompanies = () => {
             {employers.map((employer, index) => (
               <div
                 key={index}
-                className="border rounded-tl-3xl rounded-br-3xl p-10 m-10 shadow-lg transform transition duration-300 hover:scale-110"
+                className="border rounded-tl-3xl rounded-br-3xl p-5 m-10 shadow-lg transform transition duration-300 hover:scale-110"
               >
                 <img
                   src={companyImg}

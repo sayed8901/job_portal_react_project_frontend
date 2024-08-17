@@ -3,6 +3,8 @@ import { useParams, Link, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import LoadingSpinner from "../../utilities/LoadingSpinner";
 import useTitle from "../../utilities/useTitle";
+import { PDFDownloadLink } from "@react-pdf/renderer";
+import JobDetailsPDF from "../../components/JobDetailsPDF";
 
 const JobDetails = () => {
   useTitle("Job Details");
@@ -137,6 +139,19 @@ const JobDetails = () => {
           </div>
         </div>
         <hr />
+        {/* PDF Download Button */}
+        <div className="text-right">
+          <PDFDownloadLink
+            document={<JobDetailsPDF post={post} />}
+            fileName={`${post.job_title}.pdf`}
+            className="rounded-md bg-green-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-green-500"
+          >
+            {({ loading }) =>
+              loading ? "Preparing document..." : "Download PDF"
+            }
+          </PDFDownloadLink>
+        </div>
+
         {/* Additional sections for the job details */}
         <div className="my-10">
           <h1 className="text-2xl text-rose-800 font-bold mb-3">Summary</h1>
