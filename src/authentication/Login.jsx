@@ -116,6 +116,7 @@ const Login = () => {
                   value={formData.username}
                   onChange={handleChange}
                   required
+                  autoComplete="username"
                   className="block w-full rounded-md border-0 py-2 px-5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6 bg-white"
                 />
               </div>
@@ -138,6 +139,7 @@ const Login = () => {
                   value={formData.password}
                   onChange={handleChange}
                   required
+                  autoComplete="password"
                   className="block w-full rounded-md border-0 py-2 px-5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6 bg-white"
                 />
               </div>
