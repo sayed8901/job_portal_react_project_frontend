@@ -432,13 +432,6 @@ const UpdateJob = () => {
           </div>
         </div>
 
-        {/* showing error messages if any error occurs */}
-        {errorMessage && (
-          <p className="text-red-600 text-center font-semibold mt-5">
-            {errorMessage}
-          </p>
-        )}
-
         {/* Update or Cancel BTN */}
         <div className="mt-6 flex items-center justify-end gap-x-6">
           <button
@@ -458,6 +451,13 @@ const UpdateJob = () => {
           </button>
         </div>
       </form>
+
+      {/* showing error messages if any error occurs */}
+      {errorMessage && (
+        <p className="text-red-600 text-center font-semibold mt-5">
+          {errorMessage}
+        </p>
+      )}
     </div>
   );
 };

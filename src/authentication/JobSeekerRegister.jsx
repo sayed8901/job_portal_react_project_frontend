@@ -171,7 +171,7 @@ const JobSeekerRegister = () => {
           </div>
 
           <div className="border-b border-gray-900/10 pb-12">
-            <h2 className="text-base font-semibold leading-7 text-gray-900">
+            <h2 className="text-base md:text-xl font-semibold leading-7 text-gray-900">
               Personal Information
             </h2>
 
@@ -236,6 +236,7 @@ const JobSeekerRegister = () => {
                 </div>
               </div>
             </div>
+
             <div className="mt-5 grid grid-cols-1 gap-x-6 gap-y-4 sm:grid-cols-6">
               <div className="sm:col-span-3">
                 <label
@@ -364,6 +365,7 @@ const JobSeekerRegister = () => {
                 />
               </div>
             </div>
+            
             <div className="sm:col-span-3 mt-5 mb-10">
               <label
                 htmlFor="applicant_reg_password_2"

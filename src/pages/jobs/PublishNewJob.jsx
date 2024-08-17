@@ -461,13 +461,6 @@ const PublishNewJob = () => {
           </div>
         </div>
 
-        {/* showing error messages if any error occurs */}
-        {errorMessage && (
-          <p className="text-red-600 text-center font-semibold mt-5">
-            {errorMessage}
-          </p>
-        )}
-
         {/* Publish BTN */}
         <div className="mt-6 flex items-center justify-center gap-x-6">
           <button
@@ -479,6 +472,13 @@ const PublishNewJob = () => {
           </button>
         </div>
       </form>
+
+      {/* showing error messages if any error occurs */}
+      {errorMessage && (
+        <p className="text-red-600 text-center font-semibold mt-5">
+          {errorMessage}
+        </p>
+      )}
     </div>
   );
 };

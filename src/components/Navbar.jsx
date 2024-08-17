@@ -7,6 +7,7 @@ import { UserContext } from "../authentication/Contexts"; // Importing the user 
 
 const Navbar = () => {
   const { user, updateUser } = useContext(UserContext); // Get user state from context
+
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -17,12 +18,15 @@ const Navbar = () => {
     if (username && userType) {
       updateUser({ username, userType });
     }
-  }, []); // No dependencies, so this will run only once
+  }, []); // N.B.: No dependencies, so this will run only once
 
   const handleLogout = () => {
     // Handle logout logic
     localStorage.clear();
-    updateUser({ username: null, userType: null });
+    updateUser({
+      username: null,
+      userType: null,
+    });
     // redirecting to homepage
     navigate("/");
   };
@@ -124,6 +128,7 @@ const Navbar = () => {
                 >
                   All Jobs
                 </NavLink>
+
                 {/* conditionally rendering additional menu items */}
                 {renderMenuItems()}
               </div>
@@ -172,6 +177,7 @@ const Navbar = () => {
           >
             All Jobs
           </NavLink>
+
           {/* conditionally rendering additional menu items for mobile screen */}
           {renderMenuItems()}
         </div>

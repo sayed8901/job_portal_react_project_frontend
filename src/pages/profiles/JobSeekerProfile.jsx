@@ -47,17 +47,18 @@ const JobSeekerProfile = () => {
   }, [token, user_id]);
 
   return (
-    <div className="container mx-auto px-2 sm:px-0">
+    <div className="container mx-auto px-2 sm:px-0 py-10">
       {/* Profile Data */}
       <div className="w-full md:w-2/3 lg:w-1/2 mx-auto px-5 mb-10 pt-20">
         <div className="px-4 sm:px-0">
-          <h3 className="text-base font-semibold leading-7 text-gray-900 text-center">
+          <h2 className="text-center text-3xl font-semibold leading-8 text-gray-900">
             Applicant Information
-          </h3>
-          <p className="pt-10 max-w-2xl text-sm leading-6 text-gray-500 text-center">
+          </h2>
+          <p className="pt-10 max-w-2xl text-base sm:text-lg md:text-xl font-semibold leading-6 text-center text-gray-900">
             Account details
           </p>
         </div>
+
         <div className="mt-6 border-t border-gray-200">
           {accountInfo && (
             <dl className="divide-y divide-gray-200">
@@ -90,10 +91,11 @@ const JobSeekerProfile = () => {
         </div>
 
         <div className="px-4 sm:px-0">
-          <p className="pt-10 max-w-2xl text-sm leading-6 text-gray-500 text-center">
+          <p className="pt-10 max-w-2xl text-base sm:text-lg md:text-xl font-semibold leading-6 text-center text-gray-900">
             Personal details
           </p>
         </div>
+        
         <div className="mt-6 border-t border-gray-200">
           {personalInfo && (
             <dl className="divide-y divide-gray-200">
@@ -165,7 +167,7 @@ const JobSeekerProfile = () => {
           )}
         </div>
 
-        {/* Update Profile */}
+        {/* Update Profile BTN part */}
         <div className="flex justify-between items-center my-12 gap-3">
           <button
             onClick={() => navigate("/my_applications")}

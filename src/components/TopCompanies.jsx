@@ -34,9 +34,9 @@ const TopCompanies = () => {
             pauseOnHover={true}
             className="bg-white py-3 py-lg-4"
           >
-            {employers.map((employer, index) => (
+            {employers.map((employer) => (
               <div
-                key={index}
+                key={employer.id}
                 className="border rounded-tl-3xl rounded-br-3xl p-5 m-10 shadow-lg transform transition duration-300 hover:scale-110"
               >
                 <img

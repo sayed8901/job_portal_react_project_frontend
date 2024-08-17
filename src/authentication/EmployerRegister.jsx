@@ -166,7 +166,7 @@ const EmployerRegister = () => {
           </div>
 
           <div className="border-b border-gray-900/10 pb-12">
-            <h2 className="text-base font-semibold leading-7 text-gray-900">
+            <h2 className="text-base md:text-xl font-semibold leading-7 text-gray-900">
               Organizational Information
             </h2>
 
@@ -190,6 +190,7 @@ const EmployerRegister = () => {
                   />
                 </div>
               </div>
+
               <div className="col-span-full">
                 <label
                   htmlFor="company_address"
@@ -209,6 +210,7 @@ const EmployerRegister = () => {
                   />
                 </div>
               </div>
+
               <div className="col-span-full">
                 <label
                   htmlFor="business_info"
@@ -251,6 +253,7 @@ const EmployerRegister = () => {
                 />
               </div>
             </div>
+            
             <div className="sm:col-span-3 mt-5 mb-10">
               <label
                 htmlFor="employer_reg_password_2"

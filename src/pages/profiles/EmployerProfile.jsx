@@ -6,7 +6,7 @@ const EmployerProfile = () => {
   useTitle("Employer Profile");
 
   const [accountInfo, setAccountInfo] = useState({});
-  const [personalInfo, setPersonalInfo] = useState({});
+  const [organizationalInfo, setOrganizationalInfo] = useState({});
   const token = localStorage.getItem("authToken");
   const user_id = localStorage.getItem("user_id");
   const navigate = useNavigate();
@@ -24,7 +24,7 @@ const EmployerProfile = () => {
       }
     };
 
-    const fetchPersonalInfo = async () => {
+    const fetchOrganizationalInfo = async () => {
       try {
         const response = await fetch(
           `${
@@ -37,7 +37,7 @@ const EmployerProfile = () => {
           }
         );
         const user = await response.json();
-        setPersonalInfo(user);
+        setOrganizationalInfo(user);
         localStorage.setItem("employer_id", user.id);
       } catch (error) {
         console.error("Error fetching personal info:", error);
@@ -45,83 +45,90 @@ const EmployerProfile = () => {
     };
 
     fetchAccountInfo();
-    fetchPersonalInfo();
+    fetchOrganizationalInfo();
   }, [token, user_id]);
 
   return (
-    <div className="container mx-auto px-2 sm:px-0">
+    <div className="container mx-auto px-2 sm:px-0 py-10">
       <div className="w-full md:w-2/3 lg:w-1/2 mx-auto px-5 mb-10 pt-20">
         <div className="px-4 sm:px-0">
-          <h3 className="text-base font-semibold leading-7 text-gray-900 text-center">
+          <h2 className="text-center text-3xl font-semibold leading-8 text-gray-900">
             Employer Information
-          </h3>
-          <p className="pt-10 max-w-2xl text-sm leading-6 text-gray-500 text-center">
+          </h2>
+          <p className="pt-10 max-w-2xl text-base sm:text-lg md:text-xl font-semibold leading-6 text-center text-gray-900">
             Account details
           </p>
         </div>
+
         <div className="mt-6 border-t border-gray-200">
-          <dl className="divide-y divide-gray-200">
-            <div className="p-4 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
-              <dt className="text-sm font-medium leading-6 text-gray-900">
-                Full name
-              </dt>
-              <dd className="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0">
-                {accountInfo.first_name} {accountInfo.last_name}
-              </dd>
-            </div>
-            <div className="p-4 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
-              <dt className="text-sm font-medium leading-6 text-gray-900">
-                Username
-              </dt>
-              <dd className="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0">
-                {accountInfo.username}
-              </dd>
-            </div>
-            <div className="p-4 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
-              <dt className="text-sm font-medium leading-6 text-gray-900">
-                Email address
-              </dt>
-              <dd className="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0">
-                {accountInfo.email}
-              </dd>
-            </div>
-          </dl>
+          {accountInfo && (
+            <dl className="divide-y divide-gray-200">
+              <div className="p-4 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
+                <dt className="text-sm font-medium leading-6 text-gray-900">
+                  Full name
+                </dt>
+                <dd className="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0">
+                  {accountInfo.first_name} {accountInfo.last_name}
+                </dd>
+              </div>
+              <div className="p-4 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
+                <dt className="text-sm font-medium leading-6 text-gray-900">
+                  Username
+                </dt>
+                <dd className="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0">
+                  {accountInfo.username}
+                </dd>
+              </div>
+              <div className="p-4 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
+                <dt className="text-sm font-medium leading-6 text-gray-900">
+                  Email address
+                </dt>
+                <dd className="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0">
+                  {accountInfo.email}
+                </dd>
+              </div>
+            </dl>
+          )}
         </div>
 
         <div className="px-4 sm:px-0">
-          <p className="pt-10 max-w-2xl text-sm leading-6 text-gray-500 text-center">
+          <p className="pt-10 max-w-2xl text-base sm:text-lg md:text-xl font-semibold leading-6 text-center text-gray-900">
             Organization Info
           </p>
         </div>
-        <div className="mt-6 border-t border-gray-200">
-          <dl className="divide-y divide-gray-200">
-            <div className="p-4 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
-              <dt className="text-sm font-medium leading-6 text-gray-900">
-                Company name
-              </dt>
-              <dd className="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0">
-                {personalInfo.company_name}
-              </dd>
-            </div>
-            <div className="p-4 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
-              <dt className="text-sm font-medium leading-6 text-gray-900">
-                Company Address
-              </dt>
-              <dd className="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0">
-                {personalInfo.company_address}
-              </dd>
-            </div>
-            <div className="p-4 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
-              <dt className="text-sm font-medium leading-6 text-gray-900">
-                Business info
-              </dt>
-              <dd className="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0">
-                {personalInfo.business_info}
-              </dd>
-            </div>
-          </dl>
-        </div>
 
+        {organizationalInfo && (
+          <div className="mt-6 border-t border-gray-200">
+            <dl className="divide-y divide-gray-200">
+              <div className="p-4 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
+                <dt className="text-sm font-medium leading-6 text-gray-900">
+                  Company name
+                </dt>
+                <dd className="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0">
+                  {organizationalInfo.company_name}
+                </dd>
+              </div>
+              <div className="p-4 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
+                <dt className="text-sm font-medium leading-6 text-gray-900">
+                  Company Address
+                </dt>
+                <dd className="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0">
+                  {organizationalInfo.company_address}
+                </dd>
+              </div>
+              <div className="p-4 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
+                <dt className="text-sm font-medium leading-6 text-gray-900">
+                  Business info
+                </dt>
+                <dd className="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0">
+                  {organizationalInfo.business_info}
+                </dd>
+              </div>
+            </dl>
+          </div>
+        )}
+
+        {/* Update Profile BTN part */}
         <div className="flex justify-between items-center my-12 gap-3">
           <button
             onClick={() => navigate("/my_jobs")}

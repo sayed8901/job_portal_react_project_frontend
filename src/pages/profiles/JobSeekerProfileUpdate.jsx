@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import useTitle from "../../utilities/useTitle";
 
-export default function JobSeekerProfileUpdate() {
+const JobSeekerProfileUpdate = () => {
   useTitle("Update JobSeeker");
 
   const [user, setUser] = useState(null);
@@ -37,13 +37,14 @@ export default function JobSeekerProfileUpdate() {
       }
     )
       .then((response) => response.json())
-      .then((jobSeekerData) => setJobSeeker(jobSeekerData));
+      .then((data) => setJobSeeker(data));
   }, []);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setJobSeeker((prevJobSeeker) => ({
-      ...prevJobSeeker,
+
+    setJobSeeker((JobSeekerData) => ({
+      ...JobSeekerData,
       [name]: value,
     }));
   };
@@ -83,7 +84,7 @@ export default function JobSeekerProfileUpdate() {
   };
 
   return (
-    <div className="container mx-auto px-2 sm:px-0">
+    <div className="container mx-auto px-2 sm:px-0 py-10">
       {/* Profile data */}
       <form
         className="w-full md:w-2/3 lg:w-1/2 mx-auto px-5 mb-10 pt-20"
@@ -95,17 +96,12 @@ export default function JobSeekerProfileUpdate() {
             className="border-b border-gray-900/10 pb-12"
             id="applicant_profile_account_info"
           >
-            <h2 className="text-base font-semibold leading-7 text-gray-900">
-              Applicant Profile
+            <h2 className="text-center text-3xl font-semibold leading-8 text-gray-900">
+              Update Applicant Profile
             </h2>
 
             {user && (
               <div>
-                <p className="mt-1 text-sm leading-6 text-gray-600">
-                  Hello {user.first_name} {user.last_name}. This is your profile
-                  page.
-                </p>
-
                 <div className="mt-10 grid grid-cols-1 gap-x-6 gap-y-4 sm:grid-cols-6">
                   <div className="sm:col-span-4">
                     <label
@@ -195,16 +191,12 @@ export default function JobSeekerProfileUpdate() {
             className="border-b border-gray-900/10 pb-12"
             id="applicant_profile_personal_info"
           >
-            <h2 className="text-base font-semibold leading-7 text-gray-900">
+            <h2 className="max-w-2xl text-base sm:text-lg md:text-xl font-semibold leading-6 text-gray-900">
               Personal Information
             </h2>
 
             {jobSeeker && (
               <div>
-                <p className="mt-1 text-sm leading-6 text-gray-600">
-                  You can easily update your profile information.
-                </p>
-
                 <div className="mt-10 grid grid-cols-1 gap-x-6 gap-y-4 sm:grid-cols-6">
                   <div className="sm:col-span-3">
                     <label
@@ -351,6 +343,7 @@ export default function JobSeekerProfileUpdate() {
           </div>
         </div>
 
+        {/* Update BTN part */}
         <div className="mt-6 flex items-center justify-end gap-x-6">
           <button
             type="button"
@@ -370,4 +363,6 @@ export default function JobSeekerProfileUpdate() {
       </form>
     </div>
   );
-}
+};
+
+export default JobSeekerProfileUpdate;
