@@ -25,11 +25,17 @@ import JobSeekerProfileUpdate from "./pages/profiles/JobSeekerProfileUpdate.jsx"
 import EmployerProfileUpdate from "./pages/profiles/EmployerProfileUpdate.jsx";
 import PublishNewJob from "./pages/jobs/PublishNewJob.jsx";
 import ApplicantsOfJob from "./pages/jobs/ApplicantsOfAJob.jsx";
+import ScrollToTop from "./utilities/ScrollToTop.jsx";
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <App></App>,
+    element: (
+      <>
+        <ScrollToTop></ScrollToTop>
+        <App></App>
+      </>
+    ),
     errorElement: <ErrorPage></ErrorPage>,
     children: [
       {
