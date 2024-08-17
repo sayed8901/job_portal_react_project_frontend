@@ -1,6 +1,22 @@
+import { useEffect, useState } from "react";
+import Marquee from "react-fast-marquee";
+import companyImg from "../assets/front_page-icon.jpg";
+
 const TopCompanies = () => {
+  const [employers, setEmployers] = useState([]);
+
+  useEffect(() => {
+    fetch(`${import.meta.env.VITE_API_URL}/employer/list/`)
+      .then((res) => res.json())
+      .then((data) => {
+        setEmployers(data);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }, []);
+
   return (
-    // <!-- all employer section -->
     <div>
       <div className="bg-white my-16 sm:my-24">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
@@ -12,8 +28,35 @@ const TopCompanies = () => {
             their organizations. Keep an eye on them for your next move..
           </p>
 
-          {/* <!-- slider --> */}
-          
+          {/* <!-- slider with marquee --> */}
+          <Marquee
+            speed={150}
+            pauseOnHover={true}
+            className="bg-white py-3 py-lg-4"
+          >
+            {employers.map((employer, index) => (
+              <div
+                key={index}
+                className="border rounded-tl-3xl rounded-br-3xl p-10 m-10 shadow-lg transform transition duration-300 hover:scale-110"
+              >
+                <img
+                  src={companyImg}
+                  className="img-responsive w-20 h-20 mb-2 mx-auto"
+                  alt="company_img"
+                />
+                <p className="text-indigo-700 text-center font-bold mb-3">
+                  {employer.company_name}
+                </p>
+                <p className="text-center">
+                  Address:{" "}
+                  <span className="font-bold">{employer.company_address}</span>
+                </p>
+                <p className="text-center">
+                  Business: <span>{employer.business_info}</span>
+                </p>
+              </div>
+            ))}
+          </Marquee>
         </div>
       </div>
     </div>

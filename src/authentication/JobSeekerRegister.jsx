@@ -5,7 +5,7 @@ import { toast } from "react-toastify";
 import useTitle from "../utilities/useTitle";
 
 const JobSeekerRegister = () => {
-  useTitle("Employer Register");
+  useTitle("JobSeeker Register");
 
   const [errorMessage, setErrorMessage] = useState(""); // State for error messages
   const [successMessage, setSuccessMessage] = useState(""); // State for success messages

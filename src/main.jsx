@@ -26,6 +26,7 @@ import EmployerProfileUpdate from "./pages/profiles/EmployerProfileUpdate.jsx";
 import PublishNewJob from "./pages/jobs/PublishNewJob.jsx";
 import ApplicantsOfJob from "./pages/jobs/ApplicantsOfAJob.jsx";
 import ScrollToTop from "./utilities/ScrollToTop.jsx";
+import LazyLoad from "react-lazy-load";
 
 const router = createBrowserRouter([
   {
@@ -72,7 +73,11 @@ const router = createBrowserRouter([
       },
       {
         path: "/all_jobs_by_category",
-        element: <AllJobs></AllJobs>,
+        element: (
+          <LazyLoad>
+            <AllJobs></AllJobs>
+          </LazyLoad>
+        ),
       },
       {
         path: "/job_post_details/:post_id",
