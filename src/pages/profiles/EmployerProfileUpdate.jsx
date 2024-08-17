@@ -1,8 +1,11 @@
 import  { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
+import useTitle from "../../utilities/useTitle";
 
 const EmployerProfileUpdate = () => {
+  useTitle("Update Employer");
+
   const [user, setUser] = useState(null);
   const [employer, setEmployer] = useState(null);
   const navigate = useNavigate();

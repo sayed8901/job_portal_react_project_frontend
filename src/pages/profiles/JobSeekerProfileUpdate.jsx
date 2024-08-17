@@ -1,8 +1,11 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
+import useTitle from "../../utilities/useTitle";
 
 export default function JobSeekerProfileUpdate() {
+  useTitle("Update JobSeeker");
+
   const [user, setUser] = useState(null);
   const [jobSeeker, setJobSeeker] = useState({
     fathers_name: "",

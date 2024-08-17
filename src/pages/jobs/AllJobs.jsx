@@ -5,8 +5,11 @@ import calenderIcon from "../../assets/icons8-date-50.png";
 import jobTypeIcon from "../../assets/icons8-business-time-30.png";
 import locationIcon from "../../assets/icons8-location.gif";
 import jobEducationIcon from "../../assets/icons8-education-50.png";
+import useTitle from "../../utilities/useTitle";
 
 const AllJobs = () => {
+  useTitle("All Jobs");
+
   const [categories, setCategories] = useState([]);
   const [jobs, setJobs] = useState([]);
   const countdownIntervals = {};

@@ -2,8 +2,11 @@ import { useState, useEffect } from "react";
 import { useParams, Link, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import LoadingSpinner from "../../utilities/LoadingSpinner";
+import useTitle from "../../utilities/useTitle";
 
 const JobDetails = () => {
+  useTitle("Job Details");
+
   const { post_id } = useParams();
   const [post, setPost] = useState(null);
   const [applicationStatus, setApplicationStatus] = useState(null);

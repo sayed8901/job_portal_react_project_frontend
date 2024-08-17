@@ -6,8 +6,11 @@ import jobTypeIcon from "../../assets/icons8-business-time-30.png";
 import locationIcon from "../../assets/icons8-location.gif";
 import jobEducationIcon from "../../assets/icons8-education-50.png";
 import { toast } from "react-toastify";
+import useTitle from "../../utilities/useTitle";
 
 const MyJobs = () => {
+  useTitle("My Jobs");
+
   const [jobs, setJobs] = useState([]);
   const token = localStorage.getItem("authToken");
   const employer_id = localStorage.getItem("employer_id");

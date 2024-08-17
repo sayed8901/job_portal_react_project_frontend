@@ -3,8 +3,11 @@ import { useNavigate } from "react-router-dom";
 import { UserContext } from "../authentication/Contexts"; // Importing the user context
 import { toast } from "react-toastify";
 import LoadingSpinner from "../utilities/LoadingSpinner";
+import useTitle from "../utilities/useTitle";
 
 const Login = () => {
+  useTitle("Login");
+
   const [formData, setFormData] = useState({
     username: "",
     password: "",

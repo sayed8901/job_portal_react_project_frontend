@@ -1,8 +1,11 @@
 import { useState, useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { toast } from "react-toastify";
+import useTitle from "../../utilities/useTitle";
 
 const UpdateJob = () => {
+  useTitle("Update Job");
+
   const [formData, setFormData] = useState({
     job_title: "",
     job_location: "",

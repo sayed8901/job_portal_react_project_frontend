@@ -1,7 +1,10 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import useTitle from "../../utilities/useTitle";
 
 const EmployerProfile = () => {
+  useTitle("Employer Profile");
+
   const [accountInfo, setAccountInfo] = useState({});
   const [personalInfo, setPersonalInfo] = useState({});
   const token = localStorage.getItem("authToken");

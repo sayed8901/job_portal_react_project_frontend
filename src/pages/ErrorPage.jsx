@@ -1,6 +1,8 @@
 import { useNavigate } from "react-router-dom";
+import useTitle from "../utilities/useTitle";
 
 export default function Example() {
+  useTitle("Error");
   const navigate = useNavigate();
 
   return (
