@@ -2,8 +2,11 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import LoadingSpinner from "../utilities/LoadingSpinner";
 import { toast } from "react-toastify";
+import useTitle from "../utilities/useTitle";
 
 const EmployerRegister = () => {
+  useTitle("Employer Register");
+  
   const [errorMessage, setErrorMessage] = useState(""); // State for error messages
   const [successMessage, setSuccessMessage] = useState(""); // State for success messages
   const [isLoading, setIsLoading] = useState(false); // State for loading spinner
@@ -28,7 +31,7 @@ const EmployerRegister = () => {
       [e.target.name]: e.target.value,
     });
   };
-  
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     setErrorMessage(""); // Clear previous error message
