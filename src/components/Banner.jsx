@@ -48,32 +48,32 @@ const Banner = () => {
           </div>
           <dl className="mt-16 grid grid-cols-1 gap-8 sm:mt-20 sm:grid-cols-2 lg:grid-cols-4">
             <div className="flex flex-col-reverse text-center">
-              <dt className="text-base leading-7 text-gray-300">
+              <dt className="text-base md:text-lg leading-7 text-gray-300">
                 Job Openings
               </dt>
-              <dd className="text-2xl font-bold leading-9 tracking-tight text-indigo-400">
+              <dd className="text-2xl md:text-3xl font-bold leading-9 tracking-tight text-indigo-400">
                 100+
               </dd>
             </div>
             <div className="flex flex-col-reverse text-center">
-              <dt className="text-base leading-7 text-gray-300">
-                Companies connected
+              <dt className="text-base md:text-lg leading-7 text-gray-300">
+                Company connected
               </dt>
-              <dd className="text-2xl font-bold leading-9 tracking-tight text-indigo-400">
+              <dd className="text-2xl md:text-3xl font-bold leading-9 tracking-tight text-indigo-400">
                 30+
               </dd>
             </div>
             <div className="flex flex-col-reverse text-center">
-              <dt className="text-base leading-7 text-gray-300">
+              <dt className="text-base md:text-lg leading-7 text-gray-300">
                 Job categories
               </dt>
-              <dd className="text-2xl font-bold leading-9 tracking-tight text-indigo-400">
+              <dd className="text-2xl md:text-3xl font-bold leading-9 tracking-tight text-indigo-400">
                 10+
               </dd>
             </div>
             <div className="flex flex-col-reverse text-center">
-              <dt className="text-base leading-7 text-gray-300">Apply</dt>
-              <dd className="text-2xl font-bold leading-9 tracking-tight text-indigo-400">
+              <dt className="text-base md:text-lg leading-7 text-gray-300">Apply</dt>
+              <dd className="text-2xl md:text-3xl font-bold leading-9 tracking-tight text-indigo-400">
                 Unlimited
               </dd>
             </div>
