@@ -24,8 +24,8 @@ const JobSeekerRegister = () => {
     address: "",
     education: "",
     experience: "",
-    applicant_reg_password_1: "",
-    applicant_reg_password_2: "",
+    password: "",
+    confirm_password: "",
   });
 
   const navigate = useNavigate();
@@ -348,7 +348,7 @@ const JobSeekerRegister = () => {
           <div>
             <div className="sm:col-span-3 mt-5">
               <label
-                htmlFor="applicant_reg_password_1"
+                htmlFor="password"
                 className="block text-sm font-medium leading-6 text-gray-900"
               >
                 Password
@@ -356,8 +356,8 @@ const JobSeekerRegister = () => {
               <div className="mt-2">
                 <input
                   type="password"
-                  name="applicant_reg_password_1"
-                  id="applicant_reg_password_1"
+                  name="password"
+                  id="password"
                   onChange={handleChange}
                   required
                   autoComplete="new-password"
@@ -368,7 +368,7 @@ const JobSeekerRegister = () => {
             
             <div className="sm:col-span-3 mt-5 mb-10">
               <label
-                htmlFor="applicant_reg_password_2"
+                htmlFor="confirm_password"
                 className="block text-sm font-medium leading-6 text-gray-900"
               >
                 Confirm Password
@@ -376,8 +376,8 @@ const JobSeekerRegister = () => {
               <div className="mt-2">
                 <input
                   type="password"
-                  name="applicant_reg_password_2"
-                  id="applicant_reg_password_2"
+                  name="confirm_password"
+                  id="confirm_password"
                   onChange={handleChange}
                   required
                   autoComplete="new-password"

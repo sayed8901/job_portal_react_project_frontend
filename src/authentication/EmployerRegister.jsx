@@ -19,8 +19,8 @@ const EmployerRegister = () => {
     company_name: "",
     company_address: "",
     business_info: "",
-    employer_reg_password_1: "",
-    employer_reg_password_2: "",
+    password: "",
+    confirm_password: "",
   });
 
   const navigate = useNavigate();
@@ -236,7 +236,7 @@ const EmployerRegister = () => {
           <div>
             <div className="sm:col-span-3 mt-5">
               <label
-                htmlFor="employer_reg_password_1"
+                htmlFor="password"
                 className="block text-sm font-medium leading-6 text-gray-900"
               >
                 Password
@@ -244,8 +244,8 @@ const EmployerRegister = () => {
               <div className="mt-2">
                 <input
                   type="password"
-                  name="employer_reg_password_1"
-                  id="employer_reg_password_1"
+                  name="password"
+                  id="password"
                   onChange={handleChange}
                   required
                   autoComplete="new-password"
@@ -256,7 +256,7 @@ const EmployerRegister = () => {
             
             <div className="sm:col-span-3 mt-5 mb-10">
               <label
-                htmlFor="employer_reg_password_2"
+                htmlFor="confirm_password"
                 className="block text-sm font-medium leading-6 text-gray-900"
               >
                 Confirm Password
@@ -264,8 +264,8 @@ const EmployerRegister = () => {
               <div className="mt-2">
                 <input
                   type="password"
-                  name="employer_reg_password_2"
-                  id="employer_reg_password_2"
+                  name="confirm_password"
+                  id="confirm_password"
                   onChange={handleChange}
                   required
                   autoComplete="new-password"
