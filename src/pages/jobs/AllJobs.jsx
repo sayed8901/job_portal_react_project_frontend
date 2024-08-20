@@ -7,25 +7,18 @@ import calenderIcon from "../../assets/icons8-date-50.png";
 import jobTypeIcon from "../../assets/icons8-business-time-30.png";
 import locationIcon from "../../assets/icons8-location.gif";
 import jobEducationIcon from "../../assets/icons8-education-50.png";
+import Countdown from "../../components/CountdownTimer";
 
 const AllJobs = () => {
   useTitle("All Jobs");
 
   const [categories, setCategories] = useState([]);
   const [jobs, setJobs] = useState([]);
-  const countdownIntervals = {}; // Object to keep track of countdown intervals
 
   // Fetch categories and jobs when the component mounts
   useEffect(() => {
     fetchCategories();
     getJobs();
-
-    // Cleanup intervals when the component unmounts
-    return () => {
-      for (const intervalId in countdownIntervals) {
-        clearInterval(countdownIntervals[intervalId]);
-      }
-    };
   }, []);
 
   // Fetch categories
@@ -55,46 +48,6 @@ const AllJobs = () => {
       const res = await fetch(url);
       const data = await res.json();
       setJobs(data);
-
-      data.forEach((post) => {
-        const currentDate = new Date();
-        // Convert the job post deadline to UTC for comparison purposes
-        const deadline = new Date(post.deadline + "T23:59:59Z");
-
-        // Set up countdown timer
-        if (deadline > currentDate) {
-          const intervalId = setInterval(() => {
-            const now = new Date().getTime();
-            const distance = deadline - now;
-
-            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-            const hours = Math.floor(
-              (distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
-            );
-            const minutes = Math.floor(
-              (distance % (1000 * 60 * 60)) / (1000 * 60)
-            );
-            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
-
-            const countdownContainer = document.getElementById(
-              `countdown-${post.id}`
-            );
-
-            // Each interval checks if the countdownContainer exists before attempting to update it.
-            if (countdownContainer) {
-              countdownContainer.classList.add("countdown");
-              countdownContainer.innerHTML = `${days}d ${hours}h ${minutes}m ${seconds}s remaining`;
-            } else {
-              // If the container does not exist, the interval is cleared and removed from countdownIntervals.
-              clearInterval(countdownIntervals[post.id]);
-              // clear existing intervals stored in countdownIntervals before starting new ones.
-              delete countdownIntervals[post.id];
-            }
-          }, 1000);
-
-          countdownIntervals[post.id] = intervalId;
-        }
-      });
     } catch (err) {
       console.error("Error fetching jobs:", err);
     }
@@ -151,8 +104,12 @@ const AllJobs = () => {
                     )}
                   </div>
 
-                  {/* showing countdown timer */}
-                  <p id={`countdown-${post.id}`}></p>
+                  {/* Countdown Timer Component */}
+                  {new Date(post.deadline + "T23:59:59Z") > new Date() ? (
+                    <Countdown deadline={post.deadline} postId={post.id} />
+                  ) : (
+                    ""
+                  )}
                 </div>
 
                 <h2 className="text-lg leading-7 text-gray-900 sm:truncate sm:text-xl md:text-2xl sm:tracking-tight  mt-2 mb-5">

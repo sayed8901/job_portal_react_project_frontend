@@ -1,5 +1,6 @@
 import { useEffect } from "react";
 
+// to maintain dynamic page title
 const useTitle = (title = "") => {
   useEffect(() => {
     const site_name = "BD Job Portal";

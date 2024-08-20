@@ -1,3 +1,4 @@
+import LazyLoad from "react-lazy-load";
 import Banner from "../components/Banner";
 import TopCareerAdvice from "../components/TopCareerAdvice";
 import TopCompanies from "../components/TopCompanies";
@@ -9,7 +10,9 @@ const HomePage = () => {
 
   return (
     <div className="container mx-auto">
-      <Banner></Banner>
+      <LazyLoad>
+        <Banner></Banner>
+      </LazyLoad>
       <TopCompanies></TopCompanies>
       <TopCareerAdvice></TopCareerAdvice>
       <div className="-mt-16 sm:-mt-24">

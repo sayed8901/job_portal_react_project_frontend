@@ -18,14 +18,17 @@ const JobSeekerProfileUpdate = () => {
   });
   const navigate = useNavigate();
 
-  useEffect(() => {
-    const token = localStorage.getItem("authToken");
-    const user_id = localStorage.getItem("user_id");
+  const token = localStorage.getItem("authToken");
+  const user_id = localStorage.getItem("user_id");
 
+  useEffect(() => {
+    // Fetch user profile data
     fetch(`${import.meta.env.VITE_API_URL}/accounts/user/?user_id=${user_id}`)
       .then((response) => response.json())
-      .then((userData) => setUser(userData));
+      .then((userData) => setUser(userData))
+      .catch((error) => console.error("Error fetching user data:", error));
 
+    // Fetch employer profile data
     fetch(
       `${
         import.meta.env.VITE_API_URL
@@ -37,8 +40,9 @@ const JobSeekerProfileUpdate = () => {
       }
     )
       .then((response) => response.json())
-      .then((data) => setJobSeeker(data));
-  }, []);
+      .then((data) => setJobSeeker(data))
+      .catch((error) => console.error("Error fetching job_seeker data:", error));
+  }, [user_id, token]);
 
   const handleChange = (e) => {
     const { name, value } = e.target;

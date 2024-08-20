@@ -11,9 +11,9 @@ const JobDetails = () => {
 
   const [post, setPost] = useState(null);
   const [applicationStatus, setApplicationStatus] = useState(null);
-  const [errorMessage, setErrorMessage] = useState(""); // State for error messages
-  const [successMessage, setSuccessMessage] = useState(""); // State for success messages
-  const [isLoading, setIsLoading] = useState(false); // State for loading spinner
+  const [errorMessage, setErrorMessage] = useState("");
+  const [successMessage, setSuccessMessage] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
 
   const [isModalOpen, setIsModalOpen] = useState(false);
   const navigate = useNavigate();

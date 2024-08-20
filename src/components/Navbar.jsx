@@ -7,7 +7,6 @@ import { UserContext } from "../authentication/Contexts"; // Importing the user 
 
 const Navbar = () => {
   const { user, updateUser } = useContext(UserContext); // Get user state from context
-
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -20,13 +19,15 @@ const Navbar = () => {
     }
   }, []); // N.B.: No dependencies, so this will run only once
 
+  // Handle logout logic
   const handleLogout = () => {
-    // Handle logout logic
     localStorage.clear();
+
     updateUser({
       username: null,
       userType: null,
     });
+
     // redirecting to homepage
     navigate("/");
   };

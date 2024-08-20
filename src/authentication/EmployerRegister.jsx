@@ -7,9 +7,9 @@ import useTitle from "../utilities/useTitle";
 const EmployerRegister = () => {
   useTitle("Employer Register");
   
-  const [errorMessage, setErrorMessage] = useState(""); // State for error messages
-  const [successMessage, setSuccessMessage] = useState(""); // State for success messages
-  const [isLoading, setIsLoading] = useState(false); // State for loading spinner
+  const [errorMessage, setErrorMessage] = useState(""); 
+  const [successMessage, setSuccessMessage] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
 
   const [formData, setFormData] = useState({
     username: "",

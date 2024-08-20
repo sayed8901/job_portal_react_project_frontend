@@ -13,9 +13,9 @@ const Login = () => {
     password: "",
   });
 
-  const [errorMessage, setErrorMessage] = useState(""); // State for error messages
-  const [successMessage, setSuccessMessage] = useState(""); // State for success messages
-  const [isLoading, setIsLoading] = useState(false); // State for loading spinner
+  const [errorMessage, setErrorMessage] = useState("");
+  const [successMessage, setSuccessMessage] = useState("");
+  const [isLoading, setIsLoading] = useState(false); 
 
   const { updateUser } = useContext(UserContext); // Get user state from context
   const navigate = useNavigate();
@@ -34,6 +34,7 @@ const Login = () => {
     setIsLoading(true); // Show loading spinner
 
     try {
+      // First Fetch: Login Request
       const response = await fetch(
         `${import.meta.env.VITE_API_URL}/accounts/login/`,
         {
@@ -43,6 +44,7 @@ const Login = () => {
         }
       );
       const data = await response.json();
+
       if (data.error) {
         // Display error message
         setErrorMessage(data.error);
@@ -51,7 +53,7 @@ const Login = () => {
         localStorage.setItem("authToken", data.token);
         localStorage.setItem("user_id", data.user_id);
 
-        // Fetch user details to get the user_type and username
+        // Second Fetch: Fetch User Details
         const userResponse = await fetch(
           `${import.meta.env.VITE_API_URL}/accounts/user/?user_id=${
             data.user_id

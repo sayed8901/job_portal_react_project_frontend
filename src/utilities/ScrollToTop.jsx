@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import { useLocation } from "react-router-dom";
 
+// to load the page from the top each time
 function ScrollToTop() {
   const { pathname } = useLocation();
 
