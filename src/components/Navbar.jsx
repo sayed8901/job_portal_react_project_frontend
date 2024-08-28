@@ -35,7 +35,7 @@ const Navbar = () => {
   const renderMenuItems = () => {
     if (user.userType === "employer") {
       return (
-        <div className="flex flex-col sm:flex-row gap-1 md:gap-5 items-start ps-1 sm:ps-0">
+        <div className="flex flex-row justify-evenly gap-5 sm:gap-3 items-center">
           <NavLink
             to="/publish_new_job"
             className="rounded-md p-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white text-center"
@@ -120,7 +120,7 @@ const Navbar = () => {
               />
             </div>
             <div className="hidden sm:ml-6 sm:block">
-              <div className="flex gap-1 md:gap-5 items-center">
+              <div className="flex flex-row gap-1 md:gap-5 items-center">
                 <NavLink
                   to="/"
                   className="rounded-md p-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white text-center"
@@ -171,16 +171,16 @@ const Navbar = () => {
 
       {/* Mobile menu */}
       <div className="sm:hidden" id="mobile-menu">
-        <div className="space-y-1 px-2 pb-3 pt-2">
+        <div className="flex justify-around items-center px-2 pb-3 pt-2">
           <NavLink
             to="/"
-            className="block rounded-md px-3 py-2 text-base font-medium text-white"
+            className="block rounded-md px-3 py-2 text-sm font-medium text-white"
           >
             Home
           </NavLink>
           <NavLink
             to="/all_jobs_by_category"
-            className="block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-gray-700 hover:text-white"
+            className="block rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white"
           >
             All Jobs
           </NavLink>
