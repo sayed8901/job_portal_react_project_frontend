@@ -110,10 +110,14 @@ const Navbar = () => {
   return (
     <nav className="bg-gray-800 sm:fixed z-20 container">
       <div className="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
-        <div className="relative flex h-16 items-center justify-between">
+        <div className="relative flex flex-row gap-16 sm:gap-3 md:gap-8 lg:gap-16 h-16 items-center justify-between">
           <div className="flex flex-1 items-center justify-start sm:items-stretch sm:justify-start">
             <div className="flex flex-shrink-0 items-center">
-              <img className="h-8 w-auto" src={logo} alt="Your Company" />
+              <img
+                className="h-8 w-auto pl-3 sm:pl-0"
+                src={logo}
+                alt="Your Company"
+              />
             </div>
             <div className="hidden sm:ml-6 sm:block">
               <div className="flex gap-1 md:gap-5 items-center">
@@ -136,29 +140,31 @@ const Navbar = () => {
             </div>
           </div>
 
-          <div
-            id="logged_in_user_info"
-            className={`flex flex-col items-center justify-center ml-1 mr-4 ${
-              user.username ? "" : "hidden"
-            }`}
-          >
-            <div className="flex flex-row items-center justify-center gap-1">
-              <p className="font-bold text-sm text-green-300">
-                {user.username}
-              </p>
-              <img
-                className="h-4 w-4 rounded-full -mr-2"
-                src={userIcon}
-                alt="Profile Icon"
-                style={{ filter: "invert(100%)" }}
-              />
+          <div className="flex ">
+            <div
+              id="logged_in_user_info"
+              className={`flex flex-col items-center justify-center ml-1 mr-4 ${
+                user.username ? "" : "hidden"
+              }`}
+            >
+              <div className="flex flex-row items-center justify-center gap-1">
+                <p className="font-bold text-sm text-green-300">
+                  {user.username}
+                </p>
+                <img
+                  className="h-4 w-4 rounded-full -mr-2"
+                  src={userIcon}
+                  alt="Profile Icon"
+                  style={{ filter: "invert(100%)" }}
+                />
+              </div>
+              <p className="text-white text-sm">( {user.userType} )</p>
             </div>
-            <p className="text-white text-sm">( {user.userType} )</p>
-          </div>
 
-          <div className="flex items-center" id="navbar-element-auth">
-            {/* conditionally rendering additional login & logout menu items */}
-            {renderAuthItems()}
+            <div className="flex items-center" id="navbar-element-auth">
+              {/* conditionally rendering additional login & logout menu items */}
+              {renderAuthItems()}
+            </div>
           </div>
         </div>
       </div>
