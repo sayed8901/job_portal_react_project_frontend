@@ -55,10 +55,13 @@ const ApplicantsOfJob = () => {
         >
           <div className="min-w-0 flex-1">
             <div className="sm:flex gap-2 items-end mb-5">
-              <h2 className="text-2xl font-bold leading-7 text-gray-900 sm:truncate sm:text-3xl sm:tracking-tight">
-                {applicant.job_seeker.user.first_name}{" "}
-                {applicant.job_seeker.user.last_name}{" "}
-              </h2>
+              <div className="flex items-center">
+                <img className="w-6 mx-2" src={userIcon} alt="" />
+                <h2 className="text-2xl font-bold leading-7 text-gray-900 sm:truncate sm:text-3xl sm:tracking-tight">
+                  {applicant.job_seeker.user.first_name}{" "}
+                  {applicant.job_seeker.user.last_name}{" "}
+                </h2>
+              </div>
               <div className="text-xl font-normal flex gap-2">
                 <h5 className="font-normal">( Username :</h5>{" "}
                 <span className="font-bold">
@@ -124,7 +127,9 @@ const ApplicantsOfJob = () => {
 
           <div className="flex flex-row gap-2 justify-between lg:flex-col flex-wrap lg:gap-2 mt-5 lg:mt-0">
             <div>
-              <div className="sm:mt-2 mb-2 flex items-center text-sm text-gray-500 bg-gray-300 rounded-full px-3 py-2 animate-pulse">
+              {/* Customized Resume link to view the attachment file */}
+              {/* temporarily disable for vercel deployment purpose */}
+              {/* <div className="sm:mt-2 mb-2 flex items-center text-sm text-gray-500 bg-gray-300 rounded-full px-3 py-2 animate-pulse">
                 <img className="w-6 -ml-1 mr-2" src={userIcon} alt="" />
                 <a
                   href={`${import.meta.env.VITE_API_URL}/${applicant.resume}`}
@@ -135,7 +140,7 @@ const ApplicantsOfJob = () => {
                 >
                   Customized Resume
                 </a>
-              </div>
+              </div> */}
 
               <div className="sm:mt-2 flex items-center text-sm text-gray-500">
                 <img className="w-6 mx-2" src={jobEducationIcon} alt="" />

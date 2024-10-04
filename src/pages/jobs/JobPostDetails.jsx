@@ -321,7 +321,10 @@ const JobDetails = () => {
                   className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm px-5 py-2"
                 />
               </div>
-              <div className="mb-4">
+
+              {/* pdf/ doc/ docx attachment field */}
+              {/* temporarily disable for vercel deployment purpose */}
+              {/* <div className="mb-4">
                 <label
                   htmlFor="resume"
                   className="block text-sm font-medium text-gray-700"
@@ -335,7 +338,7 @@ const JobDetails = () => {
                   required
                   className="mt-1 block w-full text-sm text-gray-700 border border-gray-300 rounded-md shadow-sm focus:border-indigo-500 focus:ring-indigo-500 px-5 py-2"
                 />
-              </div>
+              </div> */}
 
               <div className="flex justify-end gap-3">
                 <button
