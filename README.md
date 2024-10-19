@@ -1,8 +1,8 @@
-# Job Portal Project Frontend
+# BD Job Portal Project Frontend
 
 ## Project Description
 
-**Project Name**: BD Job Portal
+**Project Name**: BD Job Portal Project
 
 ## Overview
 
