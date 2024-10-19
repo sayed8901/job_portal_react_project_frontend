@@ -4,6 +4,8 @@
 
 **Project Name**: BD Job Portal
 
+## Overview
+
 This is the frontend for the **BD Job Portal** project, built using **React** and **Vite**. It provides the user interface for managing job listings and applications, allowing `employers` to create and manage job posts, and `job seekers` to browse, apply, and track their job applications.
 
 The frontend is designed to interact seamlessly with the backend API, ensuring a smooth user experience for job portal management.
