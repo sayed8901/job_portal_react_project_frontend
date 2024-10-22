@@ -7,6 +7,7 @@ const AllJobs = () => {
 
   const [categories, setCategories] = useState([]);
   const [jobs, setJobs] = useState([]);
+  const [activeCategory, setActiveCategory] = useState(""); // State to track the active category
 
   // Fetch categories and jobs when the component mounts
   useEffect(() => {
@@ -41,6 +42,7 @@ const AllJobs = () => {
       const res = await fetch(url);
       const data = await res.json();
       setJobs(data);
+      setActiveCategory(categorySlugName); // Update the active category state
     } catch (err) {
       console.error("Error fetching jobs:", err);
     }
@@ -60,10 +62,15 @@ const AllJobs = () => {
           <div className="flex flex-wrap justify-evenly mx-auto mt-10 mb-16 items-center gap-x-6 gap-y-2 lg:mx-0">
             {categories.map((cat) => (
               <a
-                href="#"
-                className="animated-border px-3.5 py-2.5 text-sm font-semibold text-center"
+                href="#" 
+                className={`animated-border px-3.5 py-2.5 text-sm font-semibold text-center ${
+                  activeCategory === cat.slug ? "bg-indigo-200 rounded-xl" : "" // Change background for active category
+                }`}
                 key={cat.slug}
-                onClick={() => getJobs(cat.slug)}
+                onClick={(e) => {
+                  e.preventDefault(); // Prevent default anchor behavior
+                  getJobs(cat.slug); // Call getJobs with the selected category
+                }}
               >
                 {cat.name}
               </a>
