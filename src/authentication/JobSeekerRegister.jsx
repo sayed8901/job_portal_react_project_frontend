@@ -84,7 +84,7 @@ const JobSeekerRegister = () => {
         <div className="space-y-12">
           <div className="border-b border-gray-900/10 pb-12">
             <h2 className="text-xl md:text-2xl font-bold leading-7 text-gray-900">
-              Applicant Registration Form
+              Applicant <span className="text-gradient">Registration Form</span>
             </h2>
 
             <div className="mt-10 grid grid-cols-1 gap-x-6 gap-y-4 sm:grid-cols-6">
@@ -365,7 +365,7 @@ const JobSeekerRegister = () => {
                 />
               </div>
             </div>
-            
+
             <div className="sm:col-span-3 mt-5 mb-10">
               <label
                 htmlFor="confirm_password"

@@ -88,8 +88,8 @@ const EmployerProfileUpdate = () => {
             className="border-b border-gray-900/10 pb-12"
             id="employer_profile_account_info"
           >
-            <h2 className="text-center text-3xl font-semibold leading-8 text-gray-900">
-              Update Employer Profile
+            <h2 className="text-center text-2xl lg:text-3xl font-bold leading-8 text-gray-900">
+              Update <span className="text-gradient">Employer Profile</span>
             </h2>
 
             {user && (

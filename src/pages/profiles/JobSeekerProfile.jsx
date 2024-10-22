@@ -51,8 +51,8 @@ const JobSeekerProfile = () => {
       {/* Profile Data */}
       <div className="w-full md:w-2/3 lg:w-1/2 mx-auto px-5 mb-10 pt-20">
         <div className="px-4 sm:px-0">
-          <h2 className="text-center text-3xl font-semibold leading-8 text-gray-900">
-            Applicant Information
+          <h2 className="text-center text-2xl lg:text-3xl font-bold leading-8 text-gray-900">
+            <span className="text-gradient">Applicant</span> Information
           </h2>
           <p className="pt-10 max-w-2xl text-base sm:text-lg md:text-xl font-semibold leading-6 text-center text-gray-900">
             Account details
@@ -95,7 +95,7 @@ const JobSeekerProfile = () => {
             Personal details
           </p>
         </div>
-        
+
         <div className="mt-6 border-t border-gray-200">
           {personalInfo && (
             <dl className="divide-y divide-gray-200">

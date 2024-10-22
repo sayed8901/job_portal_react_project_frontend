@@ -38,7 +38,7 @@ const SingleJobPost = ({ post }) => {
           {isLive && <Countdown deadline={post.deadline} postId={post.id} />}
         </div>
 
-        <h2 className="text-lg leading-7 text-gray-900 sm:truncate sm:text-xl md:text-2xl sm:tracking-tight mt-2 mb-5 text-left">
+        <h2 className="text-lg leading-7 text-gray-900 sm:truncate sm:text-xl md:text-2xl sm:tracking-tight mt-2 mb-5">
           {post.employer.company_name}
         </h2>
 
@@ -80,12 +80,9 @@ const SingleJobPost = ({ post }) => {
   );
 };
 
-
 // PropTypes validation
 SingleJobPost.propTypes = {
   post: PropTypes.object.isRequired,
-
 };
-
 
 export default SingleJobPost;

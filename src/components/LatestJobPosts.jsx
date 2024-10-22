@@ -1,9 +1,7 @@
 import "react-responsive-carousel/lib/styles/carousel.min.css";
-import { Carousel } from "react-responsive-carousel";
 import { useEffect, useState } from "react";
-
+import Marquee from "react-fast-marquee";
 import SingleJobPost from "../pages/jobs/AllJobs/SingleJobPost";
-import "@smastrom/react-rating/style.css";
 
 const LatestJobCircular = () => {
   const [jobPosts, setJobPosts] = useState([]);
@@ -19,23 +17,29 @@ const LatestJobCircular = () => {
   return (
     <div className="my-16 sm:my-24 mx-6" name="reviews">
       <div className="sm:w-3/4 mx-auto">
-        <h2 className="text-2xl lg:text-4xl font-bold text-center mt-16">
+        <h2 className="text-2xl lg:text-3xl font-bold text-center mt-16">
           <span className="text-gradient">Latest</span> Job Circulars
         </h2>
-        <p className="py-12 text-center">
+        <p className="pt-12 text-center">
           You can always check out the latest job circulars to apply and stay
           ahead of other applicants.
         </p>
       </div>
 
-      {/* swiper content goes here */}
-      <Carousel autoPlay infiniteLoop>
+      {/* <!-- slider with marquee --> */}
+      <Marquee
+        speed={100}
+        pauseOnHover={true}
+        className="bg-white py-3 py-lg-4"
+      >
         {jobPosts.map((job) => (
-          <div key={job.id} className="text-center">
-            <SingleJobPost post={job} />
+          <div key={job.id} className="flex-shrink-0 mx-1 sm:mx-2 lg:mx-4">
+            <div className="max-w-xs sm:max-w-sm md:max-w-xl lg:max-w-3xl flex flex-col">
+              <SingleJobPost post={job} />
+            </div>
           </div>
         ))}
-      </Carousel>
+      </Marquee>
     </div>
   );
 };

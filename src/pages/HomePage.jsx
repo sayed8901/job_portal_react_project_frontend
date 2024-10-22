@@ -18,7 +18,7 @@ const HomePage = () => {
       <TopCompanies></TopCompanies>
       <TopCareerAdvice></TopCareerAdvice>
       <LatestJobCircular></LatestJobCircular>
-      <div className="-mt-24 -mb-16 sm:-mt-32 sm:-mb-24">
+      <div className="-mt-24 -mb-16 sm:-mt-36 sm:-mb-24">
         <AllJobs></AllJobs>
       </div>
       <Reviews></Reviews>

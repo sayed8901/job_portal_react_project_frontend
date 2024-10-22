@@ -139,8 +139,8 @@ const PublishNewJob = () => {
 
   return (
     <div className="container mx-auto px-2 sm:px-0 my-20">
-      <h2 className="text-center text-3xl font-semibold leading-8 text-gray-900 pt-10">
-        Publish a new job
+      <h2 className="text-center text-2xl lg:text-3xl font-bold leading-8 text-gray-900 pt-10">
+        <span className="text-gradient">Publish</span> a new job
       </h2>
 
       <form
