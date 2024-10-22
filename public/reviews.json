@@ -1,0 +1,106 @@
+[
+  {
+    "id": 1,
+    "name": "Farida Ahmed",
+    "reviewer_type": "applicant",
+    "title": "Smooth Application Process",
+    "details": "The job application process was straightforward and user-friendly. I was able to apply to multiple positions easily, and the system kept me updated on the status of my applications.",
+    "rating": 5
+  },
+  {
+    "id": 2,
+    "name": "Mohammad Ali",
+    "reviewer_type": "employer",
+    "title": "Quality Candidates",
+    "details": "The platform provided access to a large pool of highly skilled candidates. The filtering options made it easy to find applicants who matched our job requirements.",
+    "rating": 4.8
+  },
+  {
+    "id": 3,
+    "name": "Zakiya Begum",
+    "reviewer_type": "applicant",
+    "title": "Easy to Navigate",
+    "details": "Navigating through the portal was a breeze. I found relevant job postings quickly and appreciated the detailed job descriptions provided by employers.",
+    "rating": 4.7
+  },
+  {
+    "id": 4,
+    "name": "Rabbi Ahmed",
+    "reviewer_type": "employer",
+    "title": "Effective Recruitment Tool",
+    "details": "Using this portal made our recruitment process more efficient. The platform’s features, like job posting and communication tools, streamlined our hiring efforts significantly.",
+    "rating": 5
+  },
+  {
+    "id": 5,
+    "name": "Abu Hanif",
+    "reviewer_type": "applicant",
+    "title": "Great Job Recommendations",
+    "details": "The job portal recommended positions that matched my skills and preferences perfectly. I appreciated the personalized experience, and I landed interviews with top companies.",
+    "rating": 4.6
+  },
+  {
+    "id": 6,
+    "name": "Nadia Rahman",
+    "reviewer_type": "employer",
+    "title": "Excellent Hiring Experience",
+    "details": "We hired multiple candidates through the job portal, and the process was seamless from posting the job to onboarding. The communication with applicants was efficient, saving us time.",
+    "rating": 4.9
+  },
+  {
+    "id": 7,
+    "name": "Aminul Islam",
+    "reviewer_type": "applicant",
+    "title": "Helpful Notifications",
+    "details": "I appreciated the timely notifications about new job postings and updates on my applications. The job portal kept me in the loop at all times, and I secured a great job.",
+    "rating": 4.8
+  },
+  {
+    "id": 8,
+    "name": "Rozina Khanam",
+    "reviewer_type": "employer",
+    "title": "Streamlined Applicant Tracking",
+    "details": "The applicant tracking feature was incredibly helpful for managing candidates at different stages of the hiring process. It kept our team organized and sped up decision-making.",
+    "rating": 4.7
+  },
+  {
+    "id": 9,
+    "name": "Imran Hussain",
+    "reviewer_type": "applicant",
+    "title": "Responsive Support",
+    "details": "I had a few queries while using the portal, and the customer support team was very responsive and helpful. They addressed my concerns promptly, enhancing my overall experience.",
+    "rating": 4.6
+  },
+  {
+    "id": 10,
+    "name": "Fahmida Akhtar",
+    "reviewer_type": "employer",
+    "title": "Wide Talent Pool",
+    "details": "The platform gave us access to a diverse range of talent. The ability to filter candidates by experience and skills was incredibly useful, and we were able to hire faster than expected.",
+    "rating": 5
+  },
+  {
+    "id": 11,
+    "name": "Sarah Khan",
+    "reviewer_type": "applicant",
+    "title": "Landed My Dream Job",
+    "details": "Thanks to this job portal, I was able to find my dream job. The search filters helped me narrow down relevant job postings, and the application process was very straightforward.",
+    "rating": 5
+  },
+  {
+    "id": 12,
+    "name": "John Doe",
+    "reviewer_type": "employer",
+    "title": "Simplified Hiring Process",
+    "details": "The hiring process was simplified through this platform. We could easily review applications, schedule interviews, and communicate with potential hires, all in one place.",
+    "rating": 4.8
+  },
+  {
+    "id": 13,
+    "name": "Ali Hassan",
+    "reviewer_type": "employer",
+    "title": "Efficient Hiring Platform",
+    "details": "This platform made it easy to manage the entire recruitment process. Posting jobs, filtering through applicants, and setting up interviews were all done effortlessly.",
+    "rating": 5
+  }
+]

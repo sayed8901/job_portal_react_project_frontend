@@ -12,15 +12,15 @@ import JobSeekerProfile from "./pages/profiles/JobSeekerProfile.jsx";
 import EmployerProfile from "./pages/profiles/EmployerProfile.jsx";
 import UserProvider from "./authentication/Contexts.jsx";
 import App from "./App.jsx";
-import AllJobs from "./pages/jobs/AllJobs.jsx";
+import AllJobs from "./pages/jobs/AllJobs/AllJobs.jsx";
 import JobPostDetails from "./pages/jobs/JobPostDetails.jsx";
 import UpdateJobDetails from "./pages/jobs/UpdateJobDetails.jsx";
-import MyApplications from "./pages/jobs/MyApplications.jsx";
+import MyApplications from "./pages/jobs/MyApplications/MyApplications.jsx";
 import ErrorPage from "./pages/ErrorPage.jsx";
 
 import { ToastContainer } from "react-toastify"; // Import toast and ToastContainer
 import "react-toastify/dist/ReactToastify.css"; // Import the CSS for toast notifications
-import MyJobs from "./pages/jobs/MyJobs.jsx";
+import MyJobs from "./pages/jobs/MyJobs/MyJobs.jsx";
 import JobSeekerProfileUpdate from "./pages/profiles/JobSeekerProfileUpdate.jsx";
 import EmployerProfileUpdate from "./pages/profiles/EmployerProfileUpdate.jsx";
 import PublishNewJob from "./pages/jobs/PublishNewJob.jsx";

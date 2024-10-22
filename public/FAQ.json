@@ -1,0 +1,37 @@
+[
+  {
+    "id": 1,
+    "question": "What types of jobs are available on the platform?",
+    "answer": "Our platform offers a wide range of job opportunities across various industries, including IT, healthcare, finance, education, and more. Employers post both full-time and part-time positions, as well as freelance and internship opportunities."
+  },
+  {
+    "id": 2,
+    "question": "Do I need prior experience to apply for jobs?",
+    "answer": "No prior experience is required to apply for jobs. Our platform hosts positions for all skill levels, from entry-level roles for fresh graduates to senior positions for experienced professionals."
+  },
+  {
+    "id": 3,
+    "question": "How does the platform ensure applicant and employer data safety?",
+    "answer": "We prioritize the security of your data. The platform uses advanced encryption to protect personal information, and both employers and applicants undergo verification processes to ensure trust and safety."
+  },
+  {
+    "id": 4,
+    "question": "How does the job application process work?",
+    "answer": "The application process is straightforward. Once you've created a profile, you can search for jobs, apply directly to openings that match your skills, and track the status of your applications through your dashboard."
+  },
+  {
+    "id": 5,
+    "question": "Does the platform offer resources for career development?",
+    "answer": "Yes! We provide various resources like resume-building tools, interview preparation guides, and career advice articles to help both job seekers and employers optimize their recruitment and hiring processes."
+  },
+  {
+    "id": 6,
+    "question": "Can I apply to multiple jobs at the same time?",
+    "answer": "Yes, you can apply to as many job openings as you like. Our platform allows you to track all your applications in one place, ensuring you don't miss out on any opportunities."
+  },
+  {
+    "id": 7,
+    "question": "What kind of tools do employers have to streamline hiring?",
+    "answer": "Employers have access to a suite of tools, including applicant tracking, resume filtering, job posting templates, and communication channels to engage with candidates effectively."
+  }
+]

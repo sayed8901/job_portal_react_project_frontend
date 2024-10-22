@@ -185,6 +185,35 @@ const Login = () => {
               Create Employer Account.
             </a>
           </div>
+
+          {/* Display credentials info */}
+          <div className="mt-10 p-6 border rounded-lg shadow-md bg-gray-100">
+            <h3 className="font-semibold text-xl text-center text-indigo-600 mb-4">
+              Credentials for Testing:
+            </h3>
+
+            <div className="mb-4 p-4 border rounded-lg shadow-md bg-white">
+              <div className="mt-2 text-center text-sm text-gray-700">
+                <p className="mb-1">
+                  Employer Username: <strong>rajib</strong>
+                </p>
+                <p className="mb-1">
+                  Employer Password: <strong>sayed8901</strong>
+                </p>
+              </div>
+            </div>
+
+            <div className="p-4 border rounded-lg shadow-md bg-white">
+              <div className="mt-2 text-center text-sm text-gray-700">
+                <p className="mb-1">
+                  Job_seeker Username: <strong>Tasmi</strong>
+                </p>
+                <p className="mb-1">
+                  Job_seeker Password: <strong>sayed8901</strong>
+                </p>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
