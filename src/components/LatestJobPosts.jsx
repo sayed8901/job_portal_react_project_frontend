@@ -15,7 +15,7 @@ const LatestJobCircular = () => {
   }, []);
 
   return (
-    <div className="my-16 sm:my-24 mx-6" name="reviews">
+    <div className="my-16 sm:my-24 mx-6 text-gray-900" name="reviews">
       <div className="sm:w-3/4 mx-auto">
         <h2 className="text-2xl lg:text-3xl font-bold text-center mt-16">
           <span className="text-gradient">Latest</span> Job Circulars
