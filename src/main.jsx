@@ -27,6 +27,7 @@ import PublishNewJob from "./pages/jobs/PublishNewJob.jsx";
 import ApplicantsOfJob from "./pages/jobs/ApplicantsOfAJob.jsx";
 import ScrollToTop from "./utilities/ScrollToTop.jsx";
 import LazyLoad from "react-lazy-load";
+import Contact from "./components/Contact.jsx";
 
 const router = createBrowserRouter([
   {
@@ -156,6 +157,14 @@ const router = createBrowserRouter([
         element: (
           <LazyLoad>
             <ApplicantsOfJob></ApplicantsOfJob>
+          </LazyLoad>
+        ),
+      },
+      {
+        path: "/contact",
+        element: (
+          <LazyLoad>
+            <Contact></Contact>
           </LazyLoad>
         ),
       },

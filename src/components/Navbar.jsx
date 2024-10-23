@@ -35,7 +35,7 @@ const Navbar = () => {
   const renderMenuItems = () => {
     if (user.userType === "employer") {
       return (
-        <div className="flex flex-row justify-evenly gap-5 sm:gap-3 items-center">
+        <div className="flex flex-row justify-evenly gap-2 sm:gap-3 items-center">
           <NavLink
             to="/publish_new_job"
             className="rounded-md p-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white text-center"
@@ -86,19 +86,19 @@ const Navbar = () => {
         <>
           <NavLink
             to="/login"
-            className="rounded-md p-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white"
+            className="rounded-md p-4 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white"
           >
             Login
           </NavLink>
           <NavLink
             to="/job_seeker_register"
-            className="rounded-md p-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white text-center"
+            className="rounded-md p-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white text-center w-24"
           >
             Applicant Registration
           </NavLink>
           <NavLink
             to="/employer_register"
-            className="rounded-md p-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white text-center"
+            className="rounded-md p-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white text-center w-24"
           >
             Employer Registration
           </NavLink>
@@ -136,6 +136,13 @@ const Navbar = () => {
 
                 {/* conditionally rendering additional menu items */}
                 {renderMenuItems()}
+
+                <NavLink
+                  to="/contact"
+                  className="rounded-md p-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white text-center"
+                >
+                  Contact
+                </NavLink>
               </div>
             </div>
           </div>
@@ -187,6 +194,13 @@ const Navbar = () => {
 
           {/* conditionally rendering additional menu items for mobile screen */}
           {renderMenuItems()}
+          
+          <NavLink
+            to="/contact"
+            className="rounded-md p-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white text-center"
+          >
+            Contact
+          </NavLink>
         </div>
       </div>
     </nav>

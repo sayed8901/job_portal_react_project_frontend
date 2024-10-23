@@ -6,6 +6,7 @@ import useTitle from "../utilities/useTitle";
 import AllJobs from "./jobs/AllJobs/AllJobs";
 import Reviews from "../components/Reviews";
 import LatestJobCircular from "../components/LatestJobPosts";
+import Contact from "../components/Contact";
 
 const HomePage = () => {
   useTitle();
@@ -22,6 +23,7 @@ const HomePage = () => {
         <AllJobs></AllJobs>
       </div>
       <Reviews></Reviews>
+      <Contact></Contact>
     </div>
   );
 };
