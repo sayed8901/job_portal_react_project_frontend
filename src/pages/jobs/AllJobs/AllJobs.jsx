@@ -63,7 +63,7 @@ const AllJobs = () => {
             {categories.map((cat) => (
               <a
                 href="#" 
-                className={`animated-border px-3.5 py-2.5 text-sm font-semibold text-center ${
+                className={`animated-border px-2 py-2 text-sm font-semibold text-center ${
                   activeCategory === cat.slug ? "bg-indigo-200 rounded-xl" : "" // Change background for active category
                 }`}
                 key={cat.slug}
