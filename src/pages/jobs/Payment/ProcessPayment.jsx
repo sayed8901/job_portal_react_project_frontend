@@ -1,4 +1,4 @@
-import { useNavigate, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import useTitle from "../../../utilities/useTitle";
 import { useEffect, useState } from "react";
 
@@ -9,8 +9,6 @@ const ProcessPayment = () => {
 
   const [currentJobPost, setCurrentJobPost] = useState(null);
   const [paymentAmount, setPaymentAmount] = useState(0);
-
-  const navigate = useNavigate();
 
   useEffect(() => {
     // Fetch the job post details
@@ -55,14 +53,8 @@ const ProcessPayment = () => {
       .then((data) => {
         if (data.gateway_url) {
           // Redirect to SSLCommerz payment interface
-          //   window.location.href = data.gateway_url;
-          window.open(data.gateway_url, "_blank");
-
-          // temporarily using redirecting mechanism
-          // Set a timeout to redirect after 5 seconds
-          setTimeout(() => {
-            navigate("/all_jobs_by_category");
-          }, 5000);
+          window.location.href = data.gateway_url;
+          //   window.open(data.gateway_url, "_blank");
         } else {
           console.error("Payment URL not returned");
         }

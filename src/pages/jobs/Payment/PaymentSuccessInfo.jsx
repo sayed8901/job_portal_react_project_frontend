@@ -65,6 +65,14 @@ const PaymentSuccessInfo = () => {
             <dl className="divide-y divide-gray-200">
               <div className="p-4 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
                 <dt className="text-sm font-medium leading-6 text-gray-900">
+                  Job Post ID
+                </dt>
+                <dd className="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0">
+                  {currentJobPost.id}
+                </dd>
+              </div>
+              <div className="p-4 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
+                <dt className="text-sm font-medium leading-6 text-gray-900">
                   Title
                 </dt>
                 <dd className="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0">
@@ -118,7 +126,15 @@ const PaymentSuccessInfo = () => {
                   Payment Method
                 </dt>
                 <dd className="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0">
-                  {paymentInfo.card_type} ({paymentInfo.card_brand})
+                  {paymentInfo.card_type}
+                </dd>
+              </div>
+              <div className="p-4 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
+                <dt className="text-sm font-medium leading-6 text-gray-900">
+                  Card Brand
+                </dt>
+                <dd className="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0">
+                  {paymentInfo.card_brand}
                 </dd>
               </div>
               <div className="p-4 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">

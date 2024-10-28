@@ -22,6 +22,7 @@ const MySingleJobPost = ({ post, handleDeleteJob }) => {
             {post.job_title}
           </h2>
 
+          {/* Show payment status */}
           {post.is_payment_done ? (
             <p className="bg-indigo-200 text-sm text-green-800 px-3 py-1 rounded text-center">
               Already <br /> Paid
@@ -32,17 +33,20 @@ const MySingleJobPost = ({ post, handleDeleteJob }) => {
             </p>
           )}
 
-          <div className="flex flex-row gap-2">
-            {isLive ? (
-              <p className="bg-green-200 text-base text-green-800 px-3 py-1 rounded animate-bounce">
-                Live
-              </p>
-            ) : (
-              <p className="bg-red-200 text-sm text-red-800 px-3 py-1 rounded animate-pulse">
-                Expired
-              </p>
-            )}
-          </div>
+          {/* Show live status only if payment is done */}
+          {post.is_payment_done && (
+            <div className="flex flex-row gap-2">
+              {isLive ? (
+                <p className="bg-green-200 text-base text-green-800 px-3 py-1 rounded animate-pulse">
+                  Live
+                </p>
+              ) : (
+                <p className="bg-red-200 text-sm text-red-800 px-3 py-1 rounded animate-pulse">
+                  Expired
+                </p>
+              )}
+            </div>
+          )}
         </div>
 
         <div className="mt-1 flex flex-col sm:mt-0 sm:flex-row sm:flex-wrap sm:space-x-3 md:space-x-6">
