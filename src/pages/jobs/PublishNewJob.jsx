@@ -11,6 +11,7 @@ const PublishNewJob = () => {
   const [categories, setCategories] = useState([]);
   const [formData, setFormData] = useState({
     job_category: [],
+    job_post_type: "",
     job_title: "",
     vacancy: "",
     job_location: "",
@@ -154,7 +155,7 @@ const PublishNewJob = () => {
             </h2>
 
             <div className="mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
-              <div className="sm:col-span-full">
+              <div className="sm:col-span-4">
                 <label
                   htmlFor="job_title"
                   className="block text-sm font-medium leading-6 text-gray-900"
@@ -171,6 +172,32 @@ const PublishNewJob = () => {
                     onChange={handleChange}
                     className="block w-full rounded-md border-0 py-2 px-5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6 bg-white"
                   />
+                </div>
+              </div>
+
+              <div className="sm:col-span-2">
+                <label
+                  htmlFor="job_post_type"
+                  className="block text-sm font-medium leading-6 text-gray-900"
+                >
+                  Job Post Circular Type
+                </label>
+                <div className="mt-2">
+                  <select
+                    id="job_post_type"
+                    name="job_post_type"
+                    required
+                    value={formData.job_post_type}
+                    onChange={handleChange}
+                    className="block w-full rounded-md border-0 py-3 px-5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:max-w-xs sm:text-sm sm:leading-6 bg-white"
+                  >
+                    <option value="" disabled>
+                      Select Job Post Type
+                    </option>
+                    <option value="standard">Standard</option>
+                    <option value="premium">Premium</option>
+                    <option value="hot_job">Hot Job</option>
+                  </select>
                 </div>
               </div>
 

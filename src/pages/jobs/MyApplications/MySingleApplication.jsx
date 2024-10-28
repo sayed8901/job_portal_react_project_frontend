@@ -32,7 +32,8 @@ const MySingleApplication = ({ application, onWithdraw }) => {
           <div className="mt-2 mb-5 flex items-center text-sm text-gray-500">
             <img className="w-6 mx-2" src={calenderIcon} alt="" />
             <p className="text-lg">
-              Applied on: <span className="font-bold">{application.applied_on}</span>
+              Applied on:{" "}
+              <span className="font-bold">{application.applied_on}</span>
             </p>
           </div>
         </div>
@@ -65,10 +66,12 @@ const MySingleApplication = ({ application, onWithdraw }) => {
         </div>
       </div>
 
-      <div className="flex flex-col">
+      <div className="flex flex-row lg:flex-col justify-center mt-5 lg:mt-0">
         <button
           type="button"
-          onClick={() => navigate(`/job_post_details/${application.job_post.id}`)}
+          onClick={() =>
+            navigate(`/job_post_details/${application.job_post.id}`)
+          }
           className="inline-flex items-center rounded-md bg-green-300 px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-green-200 mx-2 my-5"
         >
           View Details

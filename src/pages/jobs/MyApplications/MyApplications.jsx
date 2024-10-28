@@ -73,7 +73,7 @@ const MyApplications = () => {
 
   return (
     <div className="container mx-auto px-2 sm:px-0">
-      <div className="bg-white py-16 sm:py-24 text-gray-900 w-full sm:w-5/6 md:w-3/4 mx-auto">
+      <div className="bg-white py-16 sm:py-24 text-gray-900 w-full sm:w-11/12 mx-auto">
         <h2 className="text-center text-3xl font-bold leading-8 text-gray-900 my-10">
           All <span className="text-gradient">Applications</span>
         </h2>

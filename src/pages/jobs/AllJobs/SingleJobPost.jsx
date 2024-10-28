@@ -16,9 +16,9 @@ const SingleJobPost = ({ post }) => {
       className="lg:flex lg:items-center lg:justify-between mx-5 md:mx-10 my-10 border border-gray-300 hover:border-indigo-500 transition duration-300 ease-in-out rounded-xl p-5"
     >
       <div className="min-w-0 flex-1">
-        <div className="flex justify-between items-center gap-3">
+        <div className="flex flex-col sm:flex-row justify-between items-center gap-3">
           <div className="flex justify-start items-center gap-3">
-            <h2 className="text-xl font-bold leading-7 text-gray-900 sm:truncate sm:text-2xl md:text-3xl sm:tracking-tight">
+            <h2 className="text-lg sm:text-xl md:text-2xl lg:text-3xl  font-bold text-gray-900 sm:truncate sm:tracking-tight">
               {post.job_title}
             </h2>
 
@@ -34,11 +34,13 @@ const SingleJobPost = ({ post }) => {
             )}
           </div>
 
-          {/* Countdown Timer Component */}
-          {isLive && <Countdown deadline={post.deadline} postId={post.id} />}
+          <div>
+            {/* Countdown Timer Component */}
+            {isLive && <Countdown deadline={post.deadline} postId={post.id} />}
+          </div>
         </div>
 
-        <h2 className="text-lg leading-7 text-gray-900 sm:truncate sm:text-xl md:text-2xl sm:tracking-tight mt-2 mb-5">
+        <h2 className="text-lg sm:text-xl md:text-2xl text-gray-900 sm:truncate sm:tracking-tight mt-2 mb-5">
           {post.employer.company_name}
         </h2>
 
@@ -72,7 +74,7 @@ const SingleJobPost = ({ post }) => {
 
       <Link
         to={`/job_post_details/${post.id}`}
-        className="inline-flex items-center rounded-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-200 my-5"
+        className="inline-flex items-center rounded-md bg-indigo-200 px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-green-300 hover:bg-indigo-300 my-5"
       >
         View Details
       </Link>

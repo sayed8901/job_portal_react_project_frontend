@@ -30,7 +30,7 @@ const AllJobs = () => {
   const getJobs = async (categorySlugName = "") => {
     try {
       // initially, to load all jobs data by default
-      let url = `${import.meta.env.VITE_API_URL}/job_posts/all/`;
+      let url = `${import.meta.env.VITE_API_URL}/job_posts/all_paid/`;
 
       if (categorySlugName) {
         // load jobs for a category only if category is selected

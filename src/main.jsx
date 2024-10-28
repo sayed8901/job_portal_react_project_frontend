@@ -28,6 +28,8 @@ import ApplicantsOfJob from "./pages/jobs/ApplicantsOfAJob.jsx";
 import ScrollToTop from "./utilities/ScrollToTop.jsx";
 import LazyLoad from "react-lazy-load";
 import Contact from "./components/Contact.jsx";
+import ProcessPayment from "./pages/jobs/Payment/ProcessPayment.jsx";
+import PaymentSuccessInfo from "./pages/jobs/Payment/PaymentSuccessInfo.jsx";
 
 const router = createBrowserRouter([
   {
@@ -104,6 +106,7 @@ const router = createBrowserRouter([
           </LazyLoad>
         ),
       },
+
       {
         path: "/all_jobs_by_category",
         element: (
@@ -160,6 +163,24 @@ const router = createBrowserRouter([
           </LazyLoad>
         ),
       },
+
+      {
+        path: "/payment/process/:post_id",
+        element: (
+          <LazyLoad>
+            <ProcessPayment></ProcessPayment>
+          </LazyLoad>
+        ),
+      },
+      {
+        path: "/payment/success/:post_id",
+        element: (
+          <LazyLoad>
+            <PaymentSuccessInfo></PaymentSuccessInfo>
+          </LazyLoad>
+        ),
+      },
+
       {
         path: "/contact",
         element: (

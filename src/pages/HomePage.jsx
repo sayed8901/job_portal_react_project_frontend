@@ -9,7 +9,7 @@ import LatestJobCircular from "../components/LatestJobPosts";
 import Contact from "../components/Contact";
 
 const HomePage = () => {
-  useTitle();
+  useTitle("Home - BD Job Portal");
 
   return (
     <div className="container mx-auto">

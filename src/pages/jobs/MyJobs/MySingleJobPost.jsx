@@ -22,15 +22,27 @@ const MySingleJobPost = ({ post, handleDeleteJob }) => {
             {post.job_title}
           </h2>
 
-          {isLive ? (
-            <p className="bg-green-200 text-sm text-green-800 px-3 py-1 rounded animate-bounce">
-              Live
+          {post.is_payment_done ? (
+            <p className="bg-indigo-200 text-sm text-green-800 px-3 py-1 rounded text-center">
+              Already <br /> Paid
             </p>
           ) : (
-            <p className="bg-red-200 text-sm text-red-800 px-3 py-1 rounded animate-pulse">
-              Expired
+            <p className="bg-red-200 text-sm text-red-800 px-3 py-1 rounded text-center">
+              Payment <br /> Due
             </p>
           )}
+
+          <div className="flex flex-row gap-2">
+            {isLive ? (
+              <p className="bg-green-200 text-base text-green-800 px-3 py-1 rounded animate-bounce">
+                Live
+              </p>
+            ) : (
+              <p className="bg-red-200 text-sm text-red-800 px-3 py-1 rounded animate-pulse">
+                Expired
+              </p>
+            )}
+          </div>
         </div>
 
         <div className="mt-1 flex flex-col sm:mt-0 sm:flex-row sm:flex-wrap sm:space-x-3 md:space-x-6">
@@ -61,13 +73,30 @@ const MySingleJobPost = ({ post, handleDeleteJob }) => {
         </div>
       </div>
 
-      <div className="flex flex-col">
-        <Link
-          to={`/applicants_of_a_job/${post.id}`}
-          className="inline-flex items-center rounded-md bg-blue-300 px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-blue-200 mx-2 my-3"
-        >
-          Applications
-        </Link>
+      <div className="flex flex-row lg:flex-col justify-center mt-5 lg:mt-0">
+        {post.is_payment_done ? (
+          <div className="flex flex-row lg:flex-col">
+            <Link
+              to={`/payment/success/${post.id}`}
+              className="inline-flex items-center rounded-md bg-cyan-300 px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-cyan-200 mx-2 my-3"
+            >
+              Payment Details
+            </Link>
+            <Link
+              to={`/applicants_of_a_job/${post.id}`}
+              className="inline-flex items-center rounded-md bg-blue-300 px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-blue-200 mx-2 my-3 animate-bounce"
+            >
+              Applications
+            </Link>
+          </div>
+        ) : (
+          <Link
+            to={`/payment/process/${post.id}`}
+            className="inline-flex items-center rounded-md bg-orange-300 px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-orange-200 mx-2 my-3 animate-pulse"
+          >
+            Proceed to Payment
+          </Link>
+        )}
 
         <Link
           to={`/update_job_details/${post.id}`}
