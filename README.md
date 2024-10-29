@@ -18,24 +18,41 @@ The frontend is designed to interact seamlessly with the backend API, ensuring a
 
 ### User Authentication
 
-- User roles: Employers and Job Seekers.
-- Users can register for an account and log in.
-- Users can log out.
+- User roles: `Employers` and `Job Seekers`.
+- Users can `register` for an account and `log in`.
+- Users can `log out`.
 
-### Job Listings
+### Employers Activity
 
-- Employers can create job listings by providing details such as job title, description, requirements, and location.
-- Job listings contain key information, such as the job title, company name, and date posted.
+#### Job Listings
+
+- Employers can create new job listings by providing the necessary details, such as job title, description, requirements, and location.
+- Job listings (short job view) display key information, such as the job title, company name, and date posted.
+- Job listings can be viewed by all users, even those who are not logged in.
 
 ### Job Details
 
 - Users can view detailed information about a job listing, including the job description, requirements, and application instructions.
 - Job seekers can apply to a job by uploading their resume and providing other information (such as salary expectations).
 
+### Job Seeker Applicants Activity
+
+- Job seekers can create profiles with relevant information.
+- Job seekers can view the details of a job listing before applying.
+- Job seekers can update their resumes.
+
 ### User Dashboard
 
-- Employers have a dashboard to manage their posted job listings, view applications, and update job details.
+#### Employer Dashboard
+
+- Employers have a dashboard to manage their posted job listings and view applications.
+- Employers can edit and update the job details of their job listings.
+- Employers can delete their job listings.
+
+#### Job Seeker Dashboard
+
 - Job seekers have a dashboard to track their applications.
+- Job seekers can withdraw their applications.
 
 ### Job Categories
 
@@ -44,6 +61,11 @@ The frontend is designed to interact seamlessly with the backend API, ensuring a
 ### Email Notifications
 
 - Send email notifications to users when they successfully apply for a job or when an employer receives a new application.
+
+### Payment Integration (using SSLCommerz)
+
+- Employers can make payments for their posted job circulars.
+- After successful payment, employers can view the payment details.
 
 ---
 
