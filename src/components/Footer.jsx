@@ -1,7 +1,7 @@
 const Footer = () => {
     return (
       <div className="relative isolate overflow-hidden bg-gray-900 py-6 sm:py-12 lg:py-16">
-        <div className="mx-auto max-w-7xl px-6 lg:px-8">
+        <div className="mx-auto max-w-[80%] px-6 lg:px-8">
           <div className="mx-auto grid max-w-2xl grid-cols-1 gap-x-8 gap-y-8 lg:max-w-none lg:grid-cols-2">
             <div className="max-w-xl lg:max-w-lg">
               <h2 className="text-2xl font-bold tracking-tight text-white sm:text-3xl lg:text-4xl">
