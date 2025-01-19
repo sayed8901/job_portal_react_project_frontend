@@ -12,13 +12,13 @@ const HomePage = () => {
   useTitle("Home - BD Job Portal");
 
   return (
-    <div className="container mx-auto">
+    <div>
       <LazyLoad>
         <Banner></Banner>
       </LazyLoad>
       <TopCompanies></TopCompanies>
       <TopCareerAdvice></TopCareerAdvice>
-      <LatestJobCircular></LatestJobCircular>
+      <LatestJobCircular ></LatestJobCircular>
       <div className="-mt-24 -mb-16 sm:-mt-36 sm:-mb-24">
         <AllJobs></AllJobs>
       </div>
