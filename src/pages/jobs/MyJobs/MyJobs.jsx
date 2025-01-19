@@ -65,7 +65,7 @@ const MyJobs = () => {
   };
 
   return (
-    <div className="bg-white py-16 sm:py-24 text-gray-900 w-full sm:w-11/12 mx-auto">
+    <div className="container mx-auto bg-white py-16 sm:py-24 text-gray-900 w-full sm:w-11/12">
       <h2 className="text-center text-3xl font-bold leading-8 text-gray-900 my-10">
         My <span className="text-gradient">Posted Jobs</span>
       </h2>
